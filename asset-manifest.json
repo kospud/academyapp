@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/academyapp/static/css/main.5e78dbce.css",
+    "main.js": "/academyapp/static/js/main.cb668ad6.js",
+    "static/js/41.db0f536e.chunk.js": "/academyapp/static/js/41.db0f536e.chunk.js",
+    "static/js/993.764fcc9b.chunk.js": "/academyapp/static/js/993.764fcc9b.chunk.js",
+    "static/js/678.8a5f5b88.chunk.js": "/academyapp/static/js/678.8a5f5b88.chunk.js",
+    "static/js/402.e5d702de.chunk.js": "/academyapp/static/js/402.e5d702de.chunk.js",
+    "static/js/44.798e437b.chunk.js": "/academyapp/static/js/44.798e437b.chunk.js",
+    "index.html": "/academyapp/index.html",
+    "main.5e78dbce.css.map": "/academyapp/static/css/main.5e78dbce.css.map",
+    "main.cb668ad6.js.map": "/academyapp/static/js/main.cb668ad6.js.map",
+    "41.db0f536e.chunk.js.map": "/academyapp/static/js/41.db0f536e.chunk.js.map",
+    "993.764fcc9b.chunk.js.map": "/academyapp/static/js/993.764fcc9b.chunk.js.map",
+    "678.8a5f5b88.chunk.js.map": "/academyapp/static/js/678.8a5f5b88.chunk.js.map",
+    "402.e5d702de.chunk.js.map": "/academyapp/static/js/402.e5d702de.chunk.js.map",
+    "44.798e437b.chunk.js.map": "/academyapp/static/js/44.798e437b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e78dbce.css",
+    "static/js/main.cb668ad6.js"
+  ]
+}

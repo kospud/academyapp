@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/678.8a5f5b88.chunk.js","mappings":"yJAQA,QANA,WACE,OACEA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,aAET,C","sources":["Components/Courses/MyCourses.tsx"],"sourcesContent":["import React from 'react'\r\n\r\nfunction MyCourses() {\r\n  return (\r\n    <div>MyCourses</div>\r\n  )\r\n}\r\n\r\nexport default MyCourses"],"names":["_jsx","children"],"sourceRoot":""}
