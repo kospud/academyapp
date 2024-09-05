@@ -1,25 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppRouter from './Components/AppRouter';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import AppThemeProvider from './Components/ThemeProvider';
+import styled from 'styled-components';
+import Navbar from './Components/Navbar';
 
+const AppContainer = styled.div`
+  width: 100svw;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  background-color: ${(props) => props.theme.colors.secondary}
+`
+
+const AppContent = styled.div`
+  flex-grow: 1;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+`
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter basename='academyapp'>
+        <AppThemeProvider>
+          <AppContainer>
+            <Navbar />
+            <AppContent>
+
+              <AppRouter />
+
+            </AppContent>
+          </AppContainer>
+        </AppThemeProvider>
+      </BrowserRouter>
+    </Provider >
+
   );
 }
 
