@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkacademy_app=self.webpackChunkacademy_app||[]).push([[402],{402:(a,e,c)=>{c.r(e),c.d(e,{default:()=>p});c(43);var n=c(579);const p=function(){return(0,n.jsx)("div",{children:"Chat"})}}}]);
-//# sourceMappingURL=402.e5d702de.chunk.js.map
