@@ -6,34 +6,18 @@ import { store } from './store/store';
 import AppThemeProvider from './Components/ThemeProvider';
 import styled from 'styled-components';
 import Navbar from './Components/Navbar';
+import { isMobileOnly } from 'react-device-detect';
+import Auth from './Components/Auth';
 
-const AppContainer = styled.div`
-  width: 100svw;
-  height: 100svh;
-  overflow: hidden;
-  display: flex;
-  background-color: ${(props) => props.theme.colors.secondary}
-`
 
-const AppContent = styled.div`
-  flex-grow: 1;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-`
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter basename='academyapp'>
         <AppThemeProvider>
-          <AppContainer>
-            <Navbar />
-            <AppContent>
-
-              <AppRouter />
-
-            </AppContent>
-          </AppContainer>
+          <Auth>
+            <AppRouter />
+          </Auth>
         </AppThemeProvider>
       </BrowserRouter>
     </Provider >

@@ -1,8 +1,22 @@
-import { Component, lazy } from "react"
-import { ALL_COURSES_ROUTE, CHAT_ROUTE, MAIN_ROUTE, MY_COURSES_ROUTE, PROFILE_ROUTE } from "./consts"
+import {  lazy } from "react"
+import { ALL_COURSES_ROUTE, CHAT_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, MY_COURSES_ROUTE, PASSWORD_RESET_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE } from "./consts"
+import LoginPage from "../Components/Login/LoginPage"
+import RegistrationPage from "../Components/Login/RegistrationPage"
+import PasswordResetPage from "../Components/Login/PasswordResetPage"
 
 export const publicRoutes=[
-
+    {
+        path: LOGIN_ROUTE,
+        component: LoginPage
+    },
+    {
+        path: REGISTRATION_ROUTE,
+        component: RegistrationPage
+    },
+    {
+        path: PASSWORD_RESET_ROUTE,
+        component: PasswordResetPage
+    }
 ]
 
 export const privateRoutes=[
