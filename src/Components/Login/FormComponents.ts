@@ -1,10 +1,9 @@
 import { Input, Form } from "antd"
 import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
-import { MobileBreakPoint, TabletBreakPoint } from "../../utills/consts"
+import { MobileBreakPoint, TabletBreakPoint } from "../../utils/consts"
 import { marginBottom, marginTop } from "../Gaps"
 import { responsiveText } from "../PageBlocks"
-import { MobileView } from "react-device-detect"
 
 export const FormContainer = styled.div`
   width: 46%;

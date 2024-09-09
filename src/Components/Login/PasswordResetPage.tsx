@@ -1,6 +1,6 @@
 import { useForm } from 'antd/es/form/Form';
 import React from 'react'
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utills/consts';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import { RedButton } from '../PageBlocks';
 import { FormContainer, FormContent, FormHeader, StyledForm, FormInput, FormLinks, FormLink, InputDescription } from './FormComponents';
 import { Form } from 'antd';

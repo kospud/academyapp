@@ -1,5 +1,5 @@
 import { Form } from 'antd'
-import { MAIN_ROUTE, PASSWORD_RESET_ROUTE, REGISTRATION_ROUTE } from '../../utills/consts'
+import { MAIN_ROUTE, PASSWORD_RESET_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts'
 import { useForm } from 'antd/es/form/Form'
 import { RedButton, responsiveText } from '../PageBlocks'
 import { useDispatch } from 'react-redux'

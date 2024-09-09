@@ -1,7 +1,8 @@
 import { PropsWithChildren, useState } from "react"
 import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
-import { TabletBreakPoint, MobileBreakPoint } from "../utills/consts"
+import { TabletBreakPoint, MobileBreakPoint } from "../utils/consts"
+import { marginBottom, marginTop } from "./Gaps"
 
 interface Fonts extends Record<number, string>{
     148: string,
@@ -11,6 +12,7 @@ interface Fonts extends Record<number, string>{
     16: string,
     24: string,
     14: string
+    12: string
 }
 
 const Desktop: Fonts={
@@ -21,6 +23,8 @@ const Desktop: Fonts={
     16: '0.8svw',
     24: '1.25svw',
     14: '0.7svw',
+    12: '0.625svw',
+
 }
 
 const Tablet: Fonts={
@@ -31,6 +35,7 @@ const Tablet: Fonts={
     16: '1.6svw',
     24: '2.5svw',
     14: '1.4svw',
+    12: '1.25svw',
 }
 
 const Mobile: Fonts={
@@ -40,7 +45,8 @@ const Mobile: Fonts={
     18: '4.3svw',
     16: '3.8svw',
     24: '5.7svw',
-    14: '3.3svw'
+    14: '3.3svw',
+    12: '2.8svw',
 }
 export const responsiveText = (desktop: keyof Fonts, tablet: keyof Fonts, mobile: keyof Fonts) => css`
   font-size: ${Desktop[desktop]};
@@ -128,3 +134,33 @@ export const RedButton = ({ style, onClick, hover, children }: PropsWithChildren
         {children}
     </RedButtonElement>
 }
+
+export const Page=styled.div`
+    width: 90%;
+
+`
+
+export const PageBlock=styled.div`
+    width: 100%;
+    min-height: 100svh;
+`
+
+export const PageBlockHeader=styled.h1<{marginTop?: number}>`
+    display: inline-block;
+    margin: 0;
+    color: ${(props)=>props.theme.colors.primary};
+    ${responsiveText(64, 64, 36)}
+    text-transform: uppercase;
+    font-weight: 800;
+    ${(props)=>props.marginTop? marginTop(props.marginTop) : ''}
+    width: 30%;
+    line-height: 1;
+`
+
+export const PageBlockPhrase=styled.a`
+    display: block;
+    color: ${(props)=>props.theme.colors.text};
+    ${responsiveText(18, 18, 12)}
+    width: 30%;
+    ${marginTop(45)}
+`

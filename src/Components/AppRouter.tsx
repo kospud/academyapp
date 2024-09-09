@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { privateRoutes, publicRoutes } from '../utills/routes'
-import { LOGIN_ROUTE, MAIN_ROUTE, MobileBreakPoint } from '../utills/consts'
+import { privateRoutes, publicRoutes } from '../utils/routes'
+import { LOGIN_ROUTE, MAIN_ROUTE, MobileBreakPoint } from '../utils/consts'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 import styled from 'styled-components'
@@ -24,6 +24,10 @@ const AppContent = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
   height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
   @media (max-width: ${MobileBreakPoint}){
     width: 100%;
     height: 90svh;

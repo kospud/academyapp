@@ -7,15 +7,9 @@ import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineComment } from "react-icons/ai";
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { ALL_COURSES_ROUTE, CHAT_ROUTE, MAIN_ROUTE, MobileBreakPoint, MY_COURSES_ROUTE, PROFILE_ROUTE } from '../utills/consts';
+import { ALL_COURSES_ROUTE, CHAT_ROUTE, MAIN_ROUTE, MobileBreakPoint, MY_COURSES_ROUTE, PROFILE_ROUTE } from '../utils/consts';
 import { isMobileOnly } from 'react-device-detect';
 
-//<AiOutlineComment />
-//<AiOutlineUser />
-//<AiOutlineFolder />
-//<AiOutlineStar />
-
-//<AiOutlineHome />
 
 const NavbarContainer = styled.div<{isMobile: boolean}>`
     width: ${({isMobile})=>isMobile? '100svw' : '13svw'};
@@ -24,6 +18,7 @@ const NavbarContainer = styled.div<{isMobile: boolean}>`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 `
 
 const NavbarContent = styled.div`

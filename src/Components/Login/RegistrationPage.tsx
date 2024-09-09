@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormContainer, FormContent, FormHeader, FormInput, FormLink, FormLinks, StyledForm } from './FormComponents';
 import { useForm } from 'antd/es/form/Form';
-import { LOGIN_ROUTE, MAIN_ROUTE, PASSWORD_RESET_ROUTE } from '../../utills/consts';
+import { LOGIN_ROUTE, MAIN_ROUTE, PASSWORD_RESET_ROUTE } from '../../utils/consts';
 import { RedButton } from '../PageBlocks';
 import { Form } from 'antd';
 
