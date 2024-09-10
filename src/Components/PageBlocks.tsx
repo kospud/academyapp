@@ -12,7 +12,8 @@ interface Fonts extends Record<number, string>{
     16: string,
     24: string,
     14: string
-    12: string
+    12: string,
+    8: string,
 }
 
 const Desktop: Fonts={
@@ -24,6 +25,7 @@ const Desktop: Fonts={
     24: '1.25svw',
     14: '0.7svw',
     12: '0.625svw',
+    8: '0.4svw'
 
 }
 
@@ -36,6 +38,7 @@ const Tablet: Fonts={
     24: '2.5svw',
     14: '1.4svw',
     12: '1.25svw',
+    8: '0.8svw'
 }
 
 const Mobile: Fonts={
@@ -47,6 +50,7 @@ const Mobile: Fonts={
     24: '5.7svw',
     14: '3.3svw',
     12: '2.8svw',
+    8: '1.9svw'
 }
 export const responsiveText = (desktop: keyof Fonts, tablet: keyof Fonts, mobile: keyof Fonts) => css`
   font-size: ${Desktop[desktop]};
@@ -138,13 +142,28 @@ export const RedButton = ({ style, onClick, hover, children }: PropsWithChildren
 export const Page=styled.div`
     width: 90%;
 
+    @media (max-width:${MobileBreakPoint}){
+        width: 88%;
+    }
 `
 
 export const PageBlock=styled.div`
     width: 100%;
     min-height: 100svh;
+
+    @media (max-width: ${TabletBreakPoint}) and (orientation: portrait){
+        min-height: 0px;
+        ${marginBottom(90)}
+    }
 `
 
+const headersWidth=css`
+    width: 30%;
+
+    @media (max-width: ${MobileBreakPoint}){
+        width: 80%;
+    }
+`
 export const PageBlockHeader=styled.h1<{marginTop?: number}>`
     display: inline-block;
     margin: 0;
@@ -153,14 +172,21 @@ export const PageBlockHeader=styled.h1<{marginTop?: number}>`
     text-transform: uppercase;
     font-weight: 800;
     ${(props)=>props.marginTop? marginTop(props.marginTop) : ''}
-    width: 30%;
     line-height: 1;
+    ${headersWidth}
 `
 
 export const PageBlockPhrase=styled.a`
     display: block;
     color: ${(props)=>props.theme.colors.text};
     ${responsiveText(18, 18, 12)}
-    width: 30%;
+    ${headersWidth}
     ${marginTop(45)}
+`
+
+export const PageLinkButtonContainer = styled.div`
+${marginTop(90)}
+${marginBottom(180)}
+display: flex;
+justify-content: center;
 `

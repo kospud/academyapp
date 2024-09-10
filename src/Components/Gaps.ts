@@ -33,7 +33,7 @@ const mobile: Margin = {
     90: '8.1svh',
     60: '5.5svh',
     45: '3.2svh',
-    24: '2.2svh'
+    24: '1svh'
 }
 export const marginBottom = (margin: number) => css`
     margin-bottom: ${desktop[margin]};

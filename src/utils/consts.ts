@@ -9,6 +9,7 @@ export const PROFILE_ROUTE='/profile'
 export const LOGIN_ROUTE='/login'
 export const REGISTRATION_ROUTE='/registration'
 export const PASSWORD_RESET_ROUTE='/passwordreser'
+export const BLOG_ROUTE='/blog'
 
 export const MobileBreakPoint='600px'
 export const TabletBreakPoint=isDesktop? '1000px' : '1400px'

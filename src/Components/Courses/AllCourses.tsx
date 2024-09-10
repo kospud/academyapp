@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { marginBottom, marginTop } from '../Gaps'
 import { Page, PageBlock, PageBlockHeader, PageBlockPhrase, responsiveText } from '../PageBlocks'
 import { Link } from 'react-router-dom'
+import { MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
 
 export interface Course {
   id: number,
@@ -67,10 +68,11 @@ const CourseCardContainer = styled.div`
   width: 25%;
   min-width: 144px;
 
-  display: flex;
-  justify-content: center;
-
   ${marginBottom(90)}
+
+  @media (max-width: ${TabletBreakPoint}){
+    width: 50%;
+  }
 `
 
 const CourseCardContent = styled.div`
@@ -82,6 +84,7 @@ const CourseImg = styled.img`
   width: 100%;
   aspect-ratio: 89/100;
   ${marginBottom(45)}
+  pointer-events: none;
 `
 
 const CourseTitle=styled.a`
@@ -101,7 +104,7 @@ const CoursePhrase=styled.a`
   color: ${(props)=>props.theme.colors.text};
   line-height: 1;
   width: 90%;
-  ${marginBottom(24)}
+  ${marginBottom(45)}
 `
 
 const CourseLink=styled(Link)`
@@ -114,10 +117,10 @@ const CourseLink=styled(Link)`
   text-decoration: none;
   font-weight: 600;
 `
-export const CourseCard = ({ course }: PropsWithChildren<{ course: Course }>) => {
+export const CourseCard = ({ course, containerStyle }: PropsWithChildren<{ course: Course, containerStyle?: React.CSSProperties }>) => {
 
   const { title, phrase, id, img } = course
-  return <CourseCardContainer>
+  return <CourseCardContainer style={containerStyle}>
     <CourseCardContent>
       <CourseImg src={img} alt={title} />
       <CourseTitle>{title}</CourseTitle>
@@ -129,13 +132,13 @@ export const CourseCard = ({ course }: PropsWithChildren<{ course: Course }>) =>
 export const AllCoursesContainer = styled.div`
 
   width: 102.5%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   ${marginTop(90)}
-  justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: ${TabletBreakPoint}){
+    width: 105%;
+  }
   
 `
 function AllCourses() {

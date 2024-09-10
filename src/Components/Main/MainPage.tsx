@@ -1,21 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
-import { Page, PageBlock, PageBlockHeader, PageBlockPhrase, RedLinkButton } from '../PageBlocks'
+import { Page, PageBlock, PageBlockHeader, PageBlockPhrase, PageLinkButtonContainer, RedLinkButton } from '../PageBlocks'
 import MyCoursesCorousel from '../Courses/MyCoursesCorousel'
 import AllCourses from '../Courses/AllCourses'
-import { ALL_COURSES_ROUTE } from '../../utils/consts'
+import { ALL_COURSES_ROUTE, BLOG_ROUTE } from '../../utils/consts'
 import styled from 'styled-components'
 import { marginBottom, marginTop } from '../Gaps'
 import CoursesCarousel from '../Courses/CoursesCarousel'
+import BlogList from '../Blog/BlogList'
 
-
-const AllCoursesLinkContainer = styled.div`
-${marginTop(90)}
-${marginBottom(180)}
-display: flex;
-justify-content: center;
-`
 function MainPage() {
 
   return (
@@ -27,10 +21,17 @@ function MainPage() {
       <PageBlock>
         <PageBlockHeader>Популярные курсы</PageBlockHeader>
         <PageBlockPhrase>Добро пожаловать в мир Академии тут снова будет какой-то текст, но пока что так.</PageBlockPhrase>
-        <CoursesCarousel/>
-        <AllCoursesLinkContainer>
+        <CoursesCarousel />
+        <PageLinkButtonContainer>
           <RedLinkButton to={ALL_COURSES_ROUTE} hover>Все курсы</RedLinkButton>
-        </AllCoursesLinkContainer>
+        </PageLinkButtonContainer>
+      </PageBlock>
+      <PageBlock>
+        <PageBlockHeader>Полезные статьи</PageBlockHeader>
+        <BlogList />
+        <PageLinkButtonContainer>
+          <RedLinkButton to={BLOG_ROUTE} hover>Все статьи</RedLinkButton>
+        </PageLinkButtonContainer>
       </PageBlock>
     </Page>
   )

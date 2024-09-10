@@ -5,7 +5,7 @@ import { responsiveText } from '../PageBlocks'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 import { marginBottom, marginTop } from '../Gaps'
 import mockCourse from '../../img/mockCourse.webp'
-import { MobileBreakPoint } from '../../utils/consts'
+import { MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
 import { SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
 interface Course {
@@ -29,19 +29,17 @@ const mockCourses: Course[] = [
         totalLessons: 10,
         finishedLessons: 0,
         img: mockCourse
-    },
+    }
 ]
 
 const CourseCardContainer = styled.div`
-    //width: 50%;
-    position: relative;
-    
+    width: 100%;   
 `
 
 const CourseTitle = styled.a`
     display: block;
     color: ${(props) => props.theme.colors.text};
-    ${responsiveText(64, 64, 16)}
+    ${responsiveText(64, 36, 16)}
     text-transform: uppercase;
     font-weight: 800;
     line-height: 1;
@@ -86,7 +84,7 @@ const CourseLessonsProgressbar = styled.div<{ progress: number }>`
 
 const CourseImg = styled.img`
     object-fit: cover;
-    width: 37svw;
+    width: 91%;
     aspect-ratio: 18/10;
     pointer-events: none;
     ${marginBottom(45)}
@@ -108,36 +106,45 @@ const CourseCard = ({ course }: PropsWithChildren<{ course: Course }>) => {
     const linkPhrase = course.finishedLessons === 0 ? 'начать' : 'продолжить'
 
     return <CourseCardContainer>
-        <div style={{ position: isMobileOnly ? 'absolute' : undefined, transform: isMobileOnly ? 'translate(10%,10%)' : undefined }}>
-            <CourseTitle>{course.title}</CourseTitle>
-            <CourseProgress>
-                <CourseText>{`Урок ${course.finishedLessons}/${course.totalLessons}`}</CourseText>
-                <CourseLessonsProgressbar progress={progress} />
-                <CourseText>{`${progress}%`}</CourseText>
-            </CourseProgress>
-        </div>
-        <CourseImg alt={course.title} src={course.img} />
-        <CourseLink to={'/courses/' + course.id}>{`${linkPhrase} изучение`}</CourseLink>
+            <div style={{ position: isMobile ? 'absolute' : undefined, transform: isMobile ? 'translate(5%,10%)' : undefined }}>
+                <CourseTitle>{course.title}</CourseTitle>
+                <CourseProgress>
+                    <CourseText>{`Урок ${course.finishedLessons}/${course.totalLessons}`}</CourseText>
+                    <CourseLessonsProgressbar progress={progress} />
+                    <CourseText>{`${progress}%`}</CourseText>
+                </CourseProgress>
+            </div>
+
+            <CourseImg alt={course.title} src={course.img} />
+            <CourseLink to={'/courses/' + course.id}>{`${linkPhrase} изучение`}</CourseLink>
     </CourseCardContainer>
 }
 
 const MyCoursesCarouselContainer = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    ${marginTop(90)}
+
+  position: relative;
+  width: 105%;
+
+${marginTop(90)};
+
+@media (max-width: ${TabletBreakPoint}){
+    width: 180%;
+}
+
 `
 
 function MyCoursesCorousel() {
 
     const courses = mockCourses
 
-    const slidesToShow = isMobile ? 1 : 2
+
     return (
         <MyCoursesCarouselContainer>
-            {
-                courses.map((course) => <CourseCard course={course} />)
-            }
+            <SliderWithCustomArrows childrenLength={courses.length} slidesToShow={2} infinite={isMobile}>
+                {
+                    courses.map((course) => <CourseCard course={course} />)
+                }
+            </SliderWithCustomArrows>
         </MyCoursesCarouselContainer>
     )
 }

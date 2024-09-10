@@ -17,6 +17,7 @@ const AppContainer = styled.div<{ isMobile: boolean }>`
   flex-direction: ${({ isMobile }) => isMobile ? 'column' : 'row'};
   justify-content: center;
   align-items: center;
+
 `
 
 const AppContent = styled.div`
