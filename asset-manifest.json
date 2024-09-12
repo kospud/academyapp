@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/academyapp/static/css/main.5e78dbce.css",
-    "main.js": "/academyapp/static/js/main.1e5677c5.js",
+    "main.js": "/academyapp/static/js/main.85d5c481.js",
     "static/css/945.d1991135.chunk.css": "/academyapp/static/css/945.d1991135.chunk.css",
-    "static/js/945.d655fd70.chunk.js": "/academyapp/static/js/945.d655fd70.chunk.js",
+    "static/js/945.e8a43e81.chunk.js": "/academyapp/static/js/945.e8a43e81.chunk.js",
     "static/js/993.fbcf4d85.chunk.js": "/academyapp/static/js/993.fbcf4d85.chunk.js",
     "static/css/946.d1991135.chunk.css": "/academyapp/static/css/946.d1991135.chunk.css",
-    "static/js/946.061d8ca8.chunk.js": "/academyapp/static/js/946.061d8ca8.chunk.js",
+    "static/js/946.4d884bba.chunk.js": "/academyapp/static/js/946.4d884bba.chunk.js",
     "static/js/402.eda5e3d3.chunk.js": "/academyapp/static/js/402.eda5e3d3.chunk.js",
     "static/js/44.8117de30.chunk.js": "/academyapp/static/js/44.8117de30.chunk.js",
+    "static/js/876.37003a0a.chunk.js": "/academyapp/static/js/876.37003a0a.chunk.js",
     "static/js/303.df0d4414.chunk.js": "/academyapp/static/js/303.df0d4414.chunk.js",
+    "static/js/2.322c6561.chunk.js": "/academyapp/static/js/2.322c6561.chunk.js",
     "static/media/mockArticle.png": "/academyapp/static/media/mockArticle.577b57e88f876219ab66.png",
     "static/media/mockCourse.webp": "/academyapp/static/media/mockCourse.24dc3d84bcd89471ae6e.webp",
     "static/media/slick.svg": "/academyapp/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -18,18 +20,20 @@
     "static/media/slick.woff": "/academyapp/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/academyapp/index.html",
     "main.5e78dbce.css.map": "/academyapp/static/css/main.5e78dbce.css.map",
-    "main.1e5677c5.js.map": "/academyapp/static/js/main.1e5677c5.js.map",
+    "main.85d5c481.js.map": "/academyapp/static/js/main.85d5c481.js.map",
     "945.d1991135.chunk.css.map": "/academyapp/static/css/945.d1991135.chunk.css.map",
-    "945.d655fd70.chunk.js.map": "/academyapp/static/js/945.d655fd70.chunk.js.map",
+    "945.e8a43e81.chunk.js.map": "/academyapp/static/js/945.e8a43e81.chunk.js.map",
     "993.fbcf4d85.chunk.js.map": "/academyapp/static/js/993.fbcf4d85.chunk.js.map",
     "946.d1991135.chunk.css.map": "/academyapp/static/css/946.d1991135.chunk.css.map",
-    "946.061d8ca8.chunk.js.map": "/academyapp/static/js/946.061d8ca8.chunk.js.map",
+    "946.4d884bba.chunk.js.map": "/academyapp/static/js/946.4d884bba.chunk.js.map",
     "402.eda5e3d3.chunk.js.map": "/academyapp/static/js/402.eda5e3d3.chunk.js.map",
     "44.8117de30.chunk.js.map": "/academyapp/static/js/44.8117de30.chunk.js.map",
-    "303.df0d4414.chunk.js.map": "/academyapp/static/js/303.df0d4414.chunk.js.map"
+    "876.37003a0a.chunk.js.map": "/academyapp/static/js/876.37003a0a.chunk.js.map",
+    "303.df0d4414.chunk.js.map": "/academyapp/static/js/303.df0d4414.chunk.js.map",
+    "2.322c6561.chunk.js.map": "/academyapp/static/js/2.322c6561.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5e78dbce.css",
-    "static/js/main.1e5677c5.js"
+    "static/js/main.85d5c481.js"
   ]
 }
