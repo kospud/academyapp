@@ -39,7 +39,7 @@ ${e=>(0,n.c)(e.coursePageView?0:45)}
 `,p=o.Ay.a`
     display: block;
     ${l}
-    ${(0,r.sl)(14,14,8)}
+    ${(0,r.sl)(14,14,12)}
 
 `;const x=function(e){let{lessons:t,finishedLessons:i,coursePageView:s}=e;const o=Math.round(i/t*100);return(0,d.jsxs)(c,{coursePageView:s,children:[(0,d.jsx)(a,{coursePageView:s,children:`\u0423\u0440\u043e\u043a ${i}/${t}`}),(0,d.jsx)(h,{progress:o}),(0,d.jsx)(p,{children:`${o}%`})]})}},4678:(e,t,i)=>{i.r(t),i.d(t,{default:()=>r});i(5043);var s=i(9250),o=i(2546),n=i(579);const r=function(){return(0,n.jsx)(o.YW,{children:(0,n.jsxs)(o.BT,{children:[(0,n.jsx)(o.GH,{marginTop:90,children:"\u041c\u043e\u0438 \u043a\u0443\u0440\u0441\u044b"}),(0,n.jsx)(s.A,{})]})})}},9250:(e,t,i)=>{i.d(t,{A:()=>y});i(5043);var s=i(5464),o=i(512),n=i(2546),r=i(8738),d=i(7630),c=i(3039),l=i(1422),a=i(5475),h=i(6402),p=i(579);const x=[{id:0,title:"\u041a\u0430\u043a \u043d\u0430\u043f\u0438\u0441\u0430\u0442\u044c \u043f\u0435\u0441\u043d\u044e",totalLessons:10,finishedLessons:2,img:c},{id:1,title:"\u041a\u0430\u043a \u0441\u0442\u0430\u0442\u044c \u0437\u0432\u0435\u0437\u0434\u043e\u0439",totalLessons:10,finishedLessons:0,img:c}],u=s.Ay.div`
     width: 100%;   
@@ -128,4 +128,4 @@ pointer-events: none;
 `,(0,n.I4)(o.A)`
     
 `);const w=function(e){let{children:t,slidesToShow:i,childrenLength:o,infinite:n}=e;const d=(0,s.useRef)(null),[w,g]=(0,s.useState)(0),m=null!==n&&void 0!==n?n:o>i,v={arrows:!1,slidesToScroll:1,infinite:m,dots:!1,slidesToShow:i,swipeToSlide:m,rows:1,beforeChange(e,t){g(t)}},y=()=>{var e;null===(e=d.current)||void 0===e||e.slickNext()},j=()=>{var e;null===(e=d.current)||void 0===e||e.slickPrev()},$=(0,l.uh)({onSwipedLeft:y,onSwipedRight:j});return(0,a.jsxs)(p,{...$,children:[m&&c.xl&&(0,a.jsxs)(u,{children:[(0,a.jsx)(x,{type:h.prev,onClick:j,children:(0,a.jsx)(r.WZN,{})}),(0,a.jsx)(x,{type:h.next,onClick:y,children:(0,a.jsx)(r.pjv,{})})]}),(0,a.jsx)(f,{ref:d,...v,children:t})]})}},3039:(e,t,i)=>{e.exports=i.p+"static/media/mockCourse.24dc3d84bcd89471ae6e.webp"}}]);
-//# sourceMappingURL=946.fc1c5655.chunk.js.map
+//# sourceMappingURL=946.39c94ed4.chunk.js.map

@@ -92,7 +92,7 @@ ${e=>(0,n.c)(e.coursePageView?0:45)}
 `,x=r.Ay.a`
     display: block;
     ${c}
-    ${(0,o.sl)(14,14,8)}
+    ${(0,o.sl)(14,14,12)}
 
 `;const p=function(e){let{lessons:t,finishedLessons:i,coursePageView:s}=e;const r=Math.round(i/t*100);return(0,d.jsxs)(l,{coursePageView:s,children:[(0,d.jsx)(a,{coursePageView:s,children:`\u0423\u0440\u043e\u043a ${i}/${t}`}),(0,d.jsx)(h,{progress:r}),(0,d.jsx)(x,{children:`${r}%`})]})}},9250:(e,t,i)=>{i.d(t,{A:()=>y});i(5043);var s=i(5464),r=i(512),n=i(2546),o=i(8738),d=i(7630),l=i(3039),c=i(1422),a=i(5475),h=i(6402),x=i(579);const p=[{id:0,title:"\u041a\u0430\u043a \u043d\u0430\u043f\u0438\u0441\u0430\u0442\u044c \u043f\u0435\u0441\u043d\u044e",totalLessons:10,finishedLessons:2,img:l},{id:1,title:"\u041a\u0430\u043a \u0441\u0442\u0430\u0442\u044c \u0437\u0432\u0435\u0437\u0434\u043e\u0439",totalLessons:10,finishedLessons:0,img:l}],m=s.Ay.div`
     width: 100%;   
@@ -227,4 +227,4 @@ pointer-events: none;
 `,(0,n.I4)(r.A)`
     
 `);const g=function(e){let{children:t,slidesToShow:i,childrenLength:r,infinite:n}=e;const d=(0,s.useRef)(null),[g,w]=(0,s.useState)(0),j=null!==n&&void 0!==n?n:r>i,f={arrows:!1,slidesToScroll:1,infinite:j,dots:!1,slidesToShow:i,swipeToSlide:j,rows:1,beforeChange(e,t){w(t)}},y=()=>{var e;null===(e=d.current)||void 0===e||e.slickNext()},$=()=>{var e;null===(e=d.current)||void 0===e||e.slickPrev()},v=(0,c.uh)({onSwipedLeft:y,onSwipedRight:$});return(0,a.jsxs)(x,{...v,children:[j&&l.xl&&(0,a.jsxs)(m,{children:[(0,a.jsx)(p,{type:h.prev,onClick:$,children:(0,a.jsx)(o.WZN,{})}),(0,a.jsx)(p,{type:h.next,onClick:y,children:(0,a.jsx)(o.pjv,{})})]}),(0,a.jsx)(u,{ref:d,...f,children:t})]})}},3039:(e,t,i)=>{e.exports=i.p+"static/media/mockCourse.24dc3d84bcd89471ae6e.webp"}}]);
-//# sourceMappingURL=945.ba8c8885.chunk.js.map
+//# sourceMappingURL=945.52aae667.chunk.js.map

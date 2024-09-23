@@ -39,7 +39,7 @@ ${e=>(0,l.c)(e.coursePageView?0:45)}
 `,h=n.Ay.a`
     display: block;
     ${c}
-    ${(0,r.sl)(14,14,8)}
+    ${(0,r.sl)(14,14,12)}
 
 `;const m=function(e){let{lessons:t,finishedLessons:i,coursePageView:s}=e;const n=Math.round(i/t*100);return(0,o.jsxs)(a,{coursePageView:s,children:[(0,o.jsx)(d,{coursePageView:s,children:`\u0423\u0440\u043e\u043a ${i}/${t}`}),(0,o.jsx)(u,{progress:n}),(0,o.jsx)(h,{children:`${n}%`})]})}},7478:(e,t,i)=>{i.r(t),i.d(t,{default:()=>Ee});var s=i(5043),n=i(2546),l=i(5464),r=i(7630),o=i(1422),a=i(6402),c=i(3002),d=i(512),u=i(8738),h=i(579);const m=l.Ay.div`
 width: 100%;
@@ -199,6 +199,7 @@ position: relative;
     width: 100%;
     display: flex;
     align-items: center;
+    min-height: 50px;
     ${(0,r.c)(45)}
     ${(0,r.S)(36)}
 `,N=l.Ay.div`
@@ -215,7 +216,7 @@ position: relative;
     @media (max-width: ${o.u3}){
         width: 15%;
     }
-`;const X=function(e){let{title:t,lesson:i,audio:n}=e;const r=(0,s.useRef)(null),[o,a]=(0,s.useState)(null),[d,m]=(0,s.useState)(!1),p=(0,l.DP)(),[x,g]=(0,s.useState)(!0);return(0,s.useEffect)((()=>{(async()=>{try{const e=await fetch(n),t=await e.blob();if(r.current&&!o){const e=Q.A.create({container:r.current,waveColor:p.colors.text,progressColor:p.colors.primary,barGap:7,barWidth:5,barRadius:10,height:u.XF?40:55,cursorWidth:0});await e.loadBlob(t),a(e)}}catch(e){console.log(e)}finally{g(!1)}})()}),[]),(0,h.jsxs)(h.Fragment,{children:[(0,h.jsx)(ue,{children:t}),(0,h.jsx)(he,{children:i}),(0,h.jsxs)(z,{children:[x?(0,h.jsx)(_,{}):(0,h.jsx)(W,{onClick:()=>{null===o||void 0===o||o.playPause(),m((e=>!e))},children:d?(0,h.jsx)(c.sXl,{}):(0,h.jsx)(c.mEc,{})}),(0,h.jsx)(N,{ref:r})]})]})};var D=i(3825),G=i(5475);const Z=i.p+"static/media/\u041f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u0441 \u0443\u0440\u043e\u043a\u0430\u043c\u0438.9d876af8a48fe4da8e14.pdf",J=(0,l.Ay)(G.N_)`
+`;const X=function(e){let{title:t,lesson:i,audio:n}=e;const r=(0,s.useRef)(null),[o,a]=(0,s.useState)(null),[d,m]=(0,s.useState)(!1),p=(0,l.DP)(),[x,g]=(0,s.useState)(!0);return(0,s.useEffect)((()=>{(async()=>{try{const e=await fetch(n),t=await e.blob();if(r.current&&!o){const e=Q.A.create({container:r.current,waveColor:p.colors.text,progressColor:p.colors.primary,barGap:7,barWidth:5,barRadius:10,height:u.XF?40:55,cursorWidth:0});await e.loadBlob(t),a(e)}}catch(e){alert(e)}finally{g(!1)}})()}),[]),(0,h.jsxs)("div",{style:{width:"100%"},children:[(0,h.jsx)(ue,{children:t}),(0,h.jsx)(he,{children:i}),(0,h.jsxs)(z,{children:[x?(0,h.jsx)(_,{}):(0,h.jsx)(W,{onClick:()=>{null===o||void 0===o||o.playPause(),m((e=>!e))},children:d?(0,h.jsx)(c.sXl,{}):(0,h.jsx)(c.mEc,{})}),(0,h.jsx)(N,{ref:r})]})]})};var D=i(3825),G=i(5475);const Z=i.p+"static/media/\u041f\u0440\u0435\u0437\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u0441 \u0443\u0440\u043e\u043a\u0430\u043c\u0438.9d876af8a48fe4da8e14.pdf",J=(0,l.Ay)(G.N_)`
     width: 100%;
     display: flex;
     
@@ -224,7 +225,7 @@ position: relative;
     color: ${e=>e.theme.colors.text};
     ${(0,n.sl)(84,84,39)}
 
-`;const K=function(e){let{title:t,link:i}=e;const[n,l]=(0,s.useState)(!0),[r,o]=(0,s.useState)({contentType:"File",contentLength:""});return(0,s.useEffect)((()=>{(async function(e){const t=await fetch(e,{method:"HEAD"});return{contentType:t.headers.get("Content-Type"),contentLength:t.headers.get("Content-Length")}})(Z).then((e=>{var t,i,s;console.log(e);const n=null!==(t=null===(i=e.contentType)||void 0===i?void 0:i.split("/")[1])&&void 0!==t?t:"FILE",r=(a=parseFloat(null!==(s=e.contentLength)&&void 0!==s?s:"0"))<1024?`${a} \u0411`:a<1048576?`${(a/1024).toFixed(1)} \u041a\u0411`:`${(a/1048576).toFixed(1)} \u041c\u0411`;var a;o({contentType:n,contentLength:r}),l(!1)}))}),[]),n?(0,h.jsx)(_,{}):(0,h.jsx)(h.Fragment,{children:(0,h.jsxs)(J,{target:"_blank",to:i,children:[(0,h.jsx)(D.XTd,{}),(0,h.jsxs)("div",{children:[(0,h.jsx)(ue,{children:t}),(0,h.jsx)(he,{children:`${r.contentType}, ${r.contentLength}`})]})]})})},O=(0,l.Ay)(G.N_)`
+`;const K=function(e){let{title:t,link:i}=e;const[n,l]=(0,s.useState)(!0),[r,o]=(0,s.useState)({contentType:"File",contentLength:""});return(0,s.useEffect)((()=>{(async function(e){const t=await fetch(e,{method:"HEAD"});return{contentType:t.headers.get("Content-Type"),contentLength:t.headers.get("Content-Length")}})(Z).then((e=>{var t,i,s;const n=null!==(t=null===(i=e.contentType)||void 0===i?void 0:i.split("/")[1])&&void 0!==t?t:"FILE",r=(a=parseFloat(null!==(s=e.contentLength)&&void 0!==s?s:"0"))<1024?`${a} \u0411`:a<1048576?`${(a/1024).toFixed(1)} \u041a\u0411`:`${(a/1048576).toFixed(1)} \u041c\u0411`;var a;o({contentType:n,contentLength:r}),l(!1)}))}),[]),n?(0,h.jsx)(_,{}):(0,h.jsx)(h.Fragment,{children:(0,h.jsxs)(J,{target:"_blank",to:i,children:[(0,h.jsx)(D.XTd,{}),(0,h.jsxs)("div",{children:[(0,h.jsx)(ue,{children:t}),(0,h.jsx)(he,{children:`${r.contentType}, ${r.contentLength}`})]})]})})},O=(0,l.Ay)(G.N_)`
     width: 100%;
     display: flex;
     
@@ -285,7 +286,7 @@ position: relative;
     height: ${e=>{let{height:t}=e;return t+"px"}};
     transition: height .3s ease-in-out;
     align-self: end;
-`,de=e=>{let{title:t,children:i,icon:n}=e;const[l,r]=(0,s.useState)(!1),[o,a]=(0,s.useState)(0),c=(0,s.useRef)(null);(0,s.useEffect)((()=>{const e=()=>{if(c.current){const e=c.current.getBoundingClientRect().height;a(l?e:0)}};return e(),window.addEventListener("resize",e),()=>window.removeEventListener("resize",e)}),[l]);return(0,h.jsxs)(oe,{children:[(0,h.jsxs)(ae,{onClick:()=>{i&&r(!l)},children:[n,(0,h.jsx)("a",{children:t}),(0,h.jsx)(D.BJp,{style:{position:"absolute",right:0,rotate:l?"90deg":"0deg",scale:"1"}})]}),(0,h.jsx)(ce,{height:o,children:(0,h.jsx)("div",{style:{display:"inline-block",width:"100%"},ref:c,children:i})})]})},ue=l.I4.a`
+`,de=e=>{let{title:t,children:i,icon:n}=e;const[l,r]=(0,s.useState)(!1),[o,a]=(0,s.useState)(0),c=(0,s.useRef)(null),d=()=>{if(c.current){const e=c.current.getBoundingClientRect().height;a(l?e:0)}};(0,s.useEffect)((()=>(d(),window.addEventListener("resize",d),()=>window.removeEventListener("resize",d))),[l]);return(0,h.jsxs)(oe,{children:[(0,h.jsxs)(ae,{onClick:()=>{i&&r(!l)},children:[n,(0,h.jsx)("a",{children:t}),(0,h.jsx)(D.BJp,{style:{position:"absolute",right:0,rotate:l?"90deg":"0deg",scale:"1"}})]}),(0,h.jsx)(ce,{height:o,children:(0,h.jsx)("div",{style:{display:"inline-block",width:"100%"},ref:c,children:i})})]})},ue=l.I4.a`
     ${(0,n.sl)(36,36,16)}
     text-transform: uppercase;
     font-weight: 700;
@@ -432,4 +433,4 @@ pointer-events: none;
 `,(0,l.I4)(n.A)`
     
 `);const g=function(e){let{children:t,slidesToShow:i,childrenLength:n,infinite:l}=e;const o=(0,s.useRef)(null),[g,f]=(0,s.useState)(0),j=null!==l&&void 0!==l?l:n>i,w={arrows:!1,slidesToScroll:1,infinite:j,dots:!1,slidesToShow:i,swipeToSlide:j,rows:1,beforeChange(e,t){f(t)}},v=()=>{var e;null===(e=o.current)||void 0===e||e.slickNext()},y=()=>{var e;null===(e=o.current)||void 0===e||e.slickPrev()},$=(0,c.uh)({onSwipedLeft:v,onSwipedRight:y});return(0,d.jsxs)(h,{...$,children:[j&&a.xl&&(0,d.jsxs)(p,{children:[(0,d.jsx)(m,{type:u.prev,onClick:y,children:(0,d.jsx)(r.WZN,{})}),(0,d.jsx)(m,{type:u.next,onClick:v,children:(0,d.jsx)(r.pjv,{})})]}),(0,d.jsx)(x,{ref:o,...w,children:t})]})}}}]);
-//# sourceMappingURL=579.35f313c5.chunk.js.map
+//# sourceMappingURL=579.67e6bf9b.chunk.js.map
