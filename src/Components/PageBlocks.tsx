@@ -1,66 +1,19 @@
 import { PropsWithChildren, useState } from "react"
 import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
-import { TabletBreakPoint, MobileBreakPoint } from "../utils/consts"
+import { TabletBreakPoint, MobileBreakPoint, DesktopWidth, TabletWidth, MobileWidth } from "../utils/consts"
 import { marginBottom, marginTop } from "./Gaps"
 
-interface Fonts extends Record<number, string>{
-    148: string,
-    64: string,
-    36: string,
-    18: string,
-    16: string,
-    24: string,
-    14: string
-    12: string,
-    8: string,
-}
 
-const Desktop: Fonts={
-    148: '7.7svw',
-    64: '3.3svw',
-    36: '1.8svw',
-    18: '0.9svw',
-    16: '0.8svw',
-    24: '1.25svw',
-    14: '0.7svw',
-    12: '0.625svw',
-    8: '0.4svw'
-
-}
-
-const Tablet: Fonts={
-    148: '15svw',
-    64: '6.6svw',
-    36: '3.7svw',
-    18: '1.8svw',
-    16: '1.6svw',
-    24: '2.5svw',
-    14: '1.4svw',
-    12: '1.25svw',
-    8: '0.8svw'
-}
-
-const Mobile: Fonts={
-    148: '35svw',
-    64: '15svw',
-    36: '8svw',
-    18: '4.3svw',
-    16: '3.8svw',
-    24: '5.7svw',
-    14: '3.3svw',
-    12: '2.8svw',
-    8: '1.9svw'
-}
-export const responsiveText = (desktop: keyof Fonts, tablet: keyof Fonts, mobile: keyof Fonts) => css`
-  font-size: ${Desktop[desktop]};
+export const responsiveText = (desktop: number, tablet: number, mobile: number) => css`
+  font-size: ${(desktop/DesktopWidth*100).toFixed(2)}svw;
 
   @media (max-width: ${TabletBreakPoint}) {
-    font-size: ${Tablet[tablet]};
+    font-size: ${(tablet/TabletWidth*100).toFixed(2)}svw;
   }
 
   @media (max-width: ${MobileBreakPoint}) {
-    font-size: ${Mobile[mobile]};
+    font-size: ${(mobile/MobileWidth*100).toFixed(2)}svw;
   }
 `
 
@@ -142,6 +95,7 @@ export const RedButton = ({ style, onClick, hover, children }: PropsWithChildren
 export const Page=styled.div`
     width: 90%;
 
+
     @media (max-width:${MobileBreakPoint}){
         width: 88%;
     }
@@ -158,10 +112,14 @@ export const PageBlock=styled.div`
 `
 
 const headersWidth=css`
-    width: 30%;
+    width: 30svw;
+
+    @media (max-width: ${TabletBreakPoint}){
+        width: 50svw;
+    }
 
     @media (max-width: ${MobileBreakPoint}){
-        width: 80%;
+        width: 80svw;
     }
 `
 export const PageBlockHeader=styled.h1<{marginTop?: number}>`
@@ -179,9 +137,10 @@ export const PageBlockHeader=styled.h1<{marginTop?: number}>`
 export const PageBlockPhrase=styled.a`
     display: block;
     color: ${(props)=>props.theme.colors.text};
+    font-weight: 600;
     ${responsiveText(18, 18, 12)}
     ${headersWidth}
-    ${marginTop(45)}
+    ${marginTop(36)}
 `
 
 export const PageLinkButtonContainer = styled.div`

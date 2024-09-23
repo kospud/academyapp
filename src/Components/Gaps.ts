@@ -6,6 +6,7 @@ interface Margin extends Record<number, string> {
     90: string,
     60: string,
     45: string,
+    36: string,
     24: string,
 }
 
@@ -15,6 +16,7 @@ const desktop: Margin = {
     90: '8.3svh',
     60: '5.5svh',
     45: '4.1svh',
+    36: '3.3svh',
     24: '2.2svh'
 }
 
@@ -24,6 +26,7 @@ const tablet: Margin = {
     90: '7.8svh',
     60: '5svh',
     45: '4.1svh',
+    36: '3.3svh',
     24: '2.2svh'
 }
 
@@ -33,6 +36,7 @@ const mobile: Margin = {
     90: '8.1svh',
     60: '5.5svh',
     45: '3.2svh',
+    36: '1.6svh',
     24: '1svh'
 }
 export const marginBottom = (margin: number) => css`

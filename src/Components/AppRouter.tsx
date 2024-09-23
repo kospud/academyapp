@@ -1,12 +1,13 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { privateRoutes, publicRoutes } from '../utils/routes'
-import { LOGIN_ROUTE, MAIN_ROUTE, MobileBreakPoint } from '../utils/consts'
-import { useSelector } from 'react-redux'
+import { LOGIN_ROUTE, MAIN_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../utils/consts'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
 import styled from 'styled-components'
-import { isMobileOnly } from 'react-device-detect'
+import { isMobile, isMobileOnly } from 'react-device-detect'
 import Navbar from './Navbar'
+import { setOrientation } from '../store/orientationSlice'
 
 const AppContainer = styled.div<{ isMobile: boolean }>`
   width: 100svw;
@@ -29,7 +30,7 @@ const AppContent = styled.div`
   flex-direction: column;
   align-items: center;
   
-  @media (max-width: ${MobileBreakPoint}){
+  @media (max-width: ${TabletBreakPoint}) and (orientation: portrait){
     width: 100%;
     height: 90svh;
   }
@@ -37,13 +38,24 @@ const AppContent = styled.div`
 
 function AppRouter() {
   const userstate = useSelector((state: RootState) => state.user)
+  const orientation=useSelector((state: RootState)=>state.orientation).orientation
 
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    const resetOrinetation=()=>{
+        dispatch(setOrientation(''))
+    }
+
+    window.addEventListener('resize', resetOrinetation)
+
+    return ()=>window.removeEventListener('resize', resetOrinetation)
+  }, [])
   return (
-    <AppContainer isMobile={isMobileOnly}>
+    <AppContainer isMobile={isMobile && orientation.portrait}>
       {
         userstate.user ?
           <>
-            {!isMobileOnly && <Navbar />}
+            {orientation.landscape && <Navbar />}
             <AppContent>
               <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
@@ -54,7 +66,7 @@ function AppRouter() {
                 </Routes>
               </Suspense>
             </AppContent>
-            {isMobileOnly && <Navbar />}
+            {orientation.portrait && <Navbar />}
           </>
           :
 

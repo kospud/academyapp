@@ -31,11 +31,12 @@ export const inputStyle = css`
     border: none;
     color: ${(props) => props.theme.colors.primary};
     ${miniText}
-
+    padding-left: 20px;
     &::placeholder{
         font-weight: 600;
         color: ${(props) => props.theme.colors.primary};
         text-transform: uppercase;
+        
     }
 
     @media (max-width: ${TabletBreakPoint}){

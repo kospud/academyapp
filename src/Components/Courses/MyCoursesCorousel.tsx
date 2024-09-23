@@ -5,9 +5,10 @@ import { responsiveText } from '../PageBlocks'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 import { marginBottom, marginTop } from '../Gaps'
 import mockCourse from '../../img/mockCourse.webp'
-import { MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
+import { MobileBreakPoint, MY_COURSES_ROUTE, TabletBreakPoint } from '../../utils/consts'
 import { SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
+import CourseProgress from './CourseProgress'
 interface Course {
     id: number | string,
     title: string,
@@ -42,44 +43,8 @@ const CourseTitle = styled.a`
     ${responsiveText(64, 36, 16)}
     text-transform: uppercase;
     font-weight: 800;
-    line-height: 1;
+    
     ${marginBottom(24)}
-`
-
-const CourseProgress = styled.div`
-width: 100%;
-display: flex;
-align-items: center;
-${marginBottom(45)}
-`
-const CourseText = styled.a`
-    display: block;
-    color: ${(props) => props.theme.colors.text};
-    ${responsiveText(18, 18, 12)}
-    text-transform: uppercase;
-    line-height: 1;
-`
-
-const CourseLessonsProgressbar = styled.div<{ progress: number }>`
-    height: 6px;
-    width: 18%;
-    min-width: 60px;
-    background-color: ${(props) => props.theme.colors.text};
-    border-radius: 10px;
-    margin-left: 3%;
-    margin-right: 1%;
-    &::after{
-        display: block;
-        content: '';
-        height: 100%;
-        width: ${(props) => props.progress + '%'};
-        background-color: ${(props) => props.theme.colors.progress};
-        border-radius: inherit;
-    }
-
-    @media (max-width: ${MobileBreakPoint}){
-        height: 3px;
-    }
 `
 
 const CourseImg = styled.img`
@@ -106,17 +71,13 @@ const CourseCard = ({ course }: PropsWithChildren<{ course: Course }>) => {
     const linkPhrase = course.finishedLessons === 0 ? 'начать' : 'продолжить'
 
     return <CourseCardContainer>
-            <div style={{ position: isMobile ? 'absolute' : undefined, transform: isMobile ? 'translate(5%,10%)' : undefined }}>
+            <div style={{position: isMobile ? 'absolute' : undefined, transform: isMobile ? 'translate(10%,15%)' : undefined }}>
                 <CourseTitle>{course.title}</CourseTitle>
-                <CourseProgress>
-                    <CourseText>{`Урок ${course.finishedLessons}/${course.totalLessons}`}</CourseText>
-                    <CourseLessonsProgressbar progress={progress} />
-                    <CourseText>{`${progress}%`}</CourseText>
-                </CourseProgress>
+                <CourseProgress lessons={course.totalLessons} finishedLessons={course.finishedLessons}/>
             </div>
 
             <CourseImg alt={course.title} src={course.img} />
-            <CourseLink to={'/courses/' + course.id}>{`${linkPhrase} изучение`}</CourseLink>
+            <CourseLink to={MY_COURSES_ROUTE+'/'+ course.id}>{`${linkPhrase} изучение`}</CourseLink>
     </CourseCardContainer>
 }
 
