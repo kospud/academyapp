@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkacademy_app=self.webpackChunkacademy_app||[]).push([[44],{44:(e,t,a)=>{a.r(t),a.d(t,{default:()=>n});a(5043);var r=a(3003),s=a(5995),i=a(2311),l=a(579);const n=function(){const e=(0,r.wA)();return(0,l.jsx)("div",{style:{height:"100%",width:"100%"},children:(0,l.jsx)(i.Ay,{style:{position:"relative",top:"50%",left:"50%",transform:"translate(-50%,-50%)"},size:"large",onClick:()=>(localStorage.removeItem("user"),void e((0,s.ri)(void 0))),children:"\u0412\u044b\u0439\u0442\u0438"})})}}}]);
-//# sourceMappingURL=44.8117de30.chunk.js.map
