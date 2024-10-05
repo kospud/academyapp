@@ -197,6 +197,7 @@ position: relative;
     }
 `,k=n.Ay.div`
     width: 50%;
+    
     @media (max-width: ${x.Qh}){
         width: 100%;
     }
@@ -226,4 +227,4 @@ position: relative;
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 `},5514:(e,t,i)=>{e.exports=i.p+"static/media/mon amour remix.acf311e8a7c06b14cda5.mp3"},5885:(e,t,i)=>{e.exports=i.p+"static/media/mockVideoPreview.b8ad3f8d4acdea8c0258.jpg"}}]);
-//# sourceMappingURL=577.a8634d76.chunk.js.map
+//# sourceMappingURL=577.a6fe8c3a.chunk.js.map
