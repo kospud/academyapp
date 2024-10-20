@@ -19,7 +19,7 @@
     @media (max-width: ${x.u3}){
         width: 15%;
     }
-`;const g=function(e){let{title:t,lesson:i,audio:l}=e;const d=(0,n.useRef)(null),[x,g]=(0,n.useState)(null),[j,y]=(0,n.useState)(!1),w=(0,s.DP)(),[v,$]=(0,n.useState)(!0);return(0,n.useEffect)((()=>{(async()=>{try{const e=await fetch(l),t=await e.blob();if(d.current&&!x){const e=o.A.create({container:d.current,waveColor:w.colors.text,progressColor:w.colors.primary,barGap:7,barWidth:5,barRadius:10,height:c.XF?40:55,cursorWidth:0});await e.loadBlob(t),g(e)}}catch(e){alert(e)}finally{$(!1)}})()}),[]),(0,p.jsxs)("div",{style:{width:"100%"},children:[t&&(0,p.jsx)(h.fH,{children:t}),i&&(0,p.jsx)(h.mE,{children:i}),(0,p.jsxs)(u,{children:[v?(0,p.jsx)(a.y,{}):(0,p.jsx)(f,{onClick:()=>{null===x||void 0===x||x.playPause(),y((e=>!e))},children:j?(0,p.jsx)(r.sXl,{}):(0,p.jsx)(r.mEc,{})}),(0,p.jsx)(m,{ref:d})]})]})}},6403:(e,t,i)=>{i.d(t,{Ay:()=>A,fH:()=>y,mE:()=>w});var n=i(5043),s=i(5464),l=i(2546),o=i(782),r=i(3825),d=i(7630),a=i(3322),c=i(7878),h=i(4777),x=i(5885),p=i(5514),u=i(579);const m=s.I4.div`
+`;const g=function(e){let{title:t,lesson:i,audio:l}=e;const d=(0,n.useRef)(null),[x,g]=(0,n.useState)(null),[j,y]=(0,n.useState)(!1),w=(0,s.DP)(),[v,$]=(0,n.useState)(!0);return(0,n.useEffect)((()=>{(async()=>{try{const e=await fetch(l),t=await e.blob();if(d.current&&!x){const e=o.A.create({container:d.current,waveColor:w.colors.text,progressColor:w.colors.primary,barGap:7,barWidth:5,barRadius:10,height:c.XF?40:55,cursorWidth:0});await e.loadBlob(t),g(e)}}catch(e){alert(e)}finally{$(!1)}})()}),[]),(0,p.jsxs)("div",{style:{width:"100%"},children:[t&&(0,p.jsx)(h.fH,{children:t}),i&&(0,p.jsx)(h.mE,{children:i}),(0,p.jsxs)(u,{children:[v?(0,p.jsx)(a.y,{}):(0,p.jsx)(f,{onClick:()=>{null===x||void 0===x||x.playPause(),y((e=>!e))},children:j?(0,p.jsx)(r.sXl,{}):(0,p.jsx)(r.mEc,{})}),(0,p.jsx)(m,{ref:d})]})]})}},6403:(e,t,i)=>{i.d(t,{$T:()=>m,Ay:()=>A,YJ:()=>v,b:()=>g,fH:()=>y,mE:()=>w,x$:()=>f});var n=i(5043),s=i(5464),l=i(2546),o=i(782),r=i(3825),d=i(7630),a=i(3322),c=i(7878),h=i(4777),x=i(5885),p=i(5514),u=i(579);const m=s.I4.div`
     width: 100%;
     flex-grow: 1;
     display: flex;
@@ -227,4 +227,4 @@ position: relative;
   100%  {transform:scaleY(-1) rotate(-135deg)}
 }
 `},5514:(e,t,i)=>{e.exports=i.p+"static/media/mon amour remix.acf311e8a7c06b14cda5.mp3"},5885:(e,t,i)=>{e.exports=i.p+"static/media/mockVideoPreview.b8ad3f8d4acdea8c0258.jpg"}}]);
-//# sourceMappingURL=577.a6fe8c3a.chunk.js.map
+//# sourceMappingURL=577.6f8f8e23.chunk.js.map
