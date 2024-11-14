@@ -16,7 +16,7 @@ function LoginPage() {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const onFormFinish=(values: any)=>{
-    const user: User={ firstname: 'name', secondname: 'surname', mail: values.mail}
+    const user: User={ firstname: 'name', secondname: 'surname', mail: values.mail, photo: undefined}
       localStorage.setItem('user', JSON.stringify(user))
       dispatch(login(user))
       navigate(MAIN_ROUTE)

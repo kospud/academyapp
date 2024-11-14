@@ -17,6 +17,7 @@ interface SliderProps {
     slidesToShow: number,
     childrenLength: number,
     infinite?: boolean
+    dots?: boolean
 }
 
 const SliderContainer = styled.div`
@@ -81,7 +82,7 @@ const Dot=styled.div<{selected: boolean}>`
 const CustomSlider=styled(Slider)`
     
 `
-function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infinite }: PropsWithChildren<SliderProps>) {
+function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infinite, dots=false }: PropsWithChildren<SliderProps>) {
 
 
     const sliderRef = useRef<Slider>(null)
@@ -130,6 +131,13 @@ function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infini
                     children
                 }
             </CustomSlider>
+            {dots && <DotsContainer>
+                    {
+
+                        Array(childrenLength).fill(null).map((_, index)=><Dot key={index} selected={selectedIndex===index}/>)
+                    }
+                </DotsContainer>}
+
         </SliderContainer>
     )
 }

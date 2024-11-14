@@ -18,13 +18,13 @@ import CourseVideo, { CourseVideoProps } from './CourseVideo'
 import mockVideoPreview from '../../../img/mockVideoPreview.jpg'
 import mockAudio from '../../../audio/mon amour remix.mp3'
 
-const AccordionItemContainer = styled.div`
+export const AccordionItemContainer = styled.div`
     width: 100%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;   
 `
-const AccordionItemHeader = styled.div`
+export const AccordionItemHeader = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,15 +51,13 @@ const AccordionItemHeader = styled.div`
     }
 `
 
-const AccordionItemContent = styled.div<{ height: number }>`
+export const AccordionItemContent = styled.div<{ height: number | string}>`
     width: 90%;
     overflow: hidden;
-    height: ${({ height }) => height + 'px'};
+    height: ${({ height }) =>typeof height==='string'? height : height + 'px'};
     transition: height .3s ease-in-out;
     align-self: end;
 `
-
-
 
 export interface AccordionItemProps {
     title: string,
@@ -97,7 +95,7 @@ const AccordionItem = ({ title, children, icon }: PropsWithChildren<AccordionIte
             setIsOpen(!isOpen)
     }
 
-
+    
 
     return <AccordionItemContainer>
         <AccordionItemHeader onClick={itemClickHandler}>
@@ -131,10 +129,11 @@ export const AccordionContentH2 = styled.a`
     ${marginBottom(24)}
 `
 
-const AccordionContainer = styled.div`
+export const AccordionContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    
 `
 
 type CourseContent = {

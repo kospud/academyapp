@@ -12,21 +12,21 @@ export const ReviewTextStyle = css`
     text-align: justify;
 `
 
-const ReviewBlock = styled.div`
+export const ReviewBlock = styled.div`
 width: 100%;
 ${marginBottom(90)}
 `
-const ReviewBlockHeader = styled.h2`
+export const ReviewBlockHeader = styled.h2`
     ${marginTop(0)}
     ${marginBottom(45)}
     line-height: 1;
     ${responsiveText(36, 36, 24)}
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.text};
 `
 
-const ReviewText = styled.a<{ last: boolean }>`
+export const ReviewText = styled.p<{ last: boolean }>`
     display: block;
     width: 83%;
     ${ReviewTextStyle}
@@ -58,7 +58,7 @@ display: block;
       ${marginBottom(24)}
     line-height: 1;
     ${responsiveText(36, 24, 16)}
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.text};
 `
@@ -97,7 +97,7 @@ export type Mentor = {
 interface MentorProps {
     mentor: Mentor
 }
-const Mentor = ({mentor}: MentorProps) => {
+export const Mentor = ({mentor}: MentorProps) => {
 
     return <MentorContainer>
         <MentorLogo><PiMicrophone /></MentorLogo>

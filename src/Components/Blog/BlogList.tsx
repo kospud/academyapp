@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import mockArticle from '../../img/mockArticle.png'
 import { marginBottom, marginTop } from '../Gaps'
-import { responsiveText } from '../PageBlocks'
+import { responsiveText, TextColorHovered } from '../PageBlocks'
 import { Link } from 'react-router-dom'
 import { BLOG_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
 
@@ -20,7 +20,7 @@ const ArticleContainer = styled.div`
     align-items: end;
     justify-content: space-between;
 
-    @media (max-width: ${TabletBreakPoint} ) and (orientation: portrait){
+    @media (max-width: ${MobileBreakPoint} ){
         width: 100%;
     }
 `
@@ -38,14 +38,14 @@ const ArticleDescription = styled.div`
 const ArticleDate = styled.a`
     display: block;
     color: ${(props) => props.theme.colors.text};
-    ${responsiveText(18, 12, 8)}
+    ${responsiveText(18, 18, 8)}
     ${marginBottom(24)}
 `
 
 const ArticleTitle = styled.a`
     display: block;
     color: ${(props) => props.theme.colors.text};
-    ${responsiveText(24, 18, 16)}
+    ${responsiveText(24, 24, 16)}
     text-transform: uppercase;
     font-weight: 700;
     ${marginBottom(45)}
@@ -56,9 +56,10 @@ display: block;
     text-decoration: none;
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.text};
-    ${responsiveText(18, 14, 12)}
+    ${responsiveText(18, 18, 12)}
     font-weight: 500;
     line-height: 1;
+    ${TextColorHovered}
 `
 function Article({ article }: PropsWithChildren<{ article: Article }>) {
 

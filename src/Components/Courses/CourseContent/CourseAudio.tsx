@@ -5,7 +5,7 @@ import WaveSurfer from 'wavesurfer.js';
 
 import { PiPlayCircle } from "react-icons/pi";
 import { PiPauseCircle } from "react-icons/pi";
-import { responsiveText } from '../../PageBlocks';
+import { responsiveText, TextColorHovered } from '../../PageBlocks';
 import { Spinner } from '../../Spinner';
 import { isMobileOnly } from 'react-device-detect';
 import { AccordionContentH1, AccordionContentH2 } from './CourseContent';
@@ -35,15 +35,15 @@ const PlayButton = styled.div`
     
     align-items: center;
     ${responsiveText(72, 72, 36)}
-
+    
     @media (max-width: ${TabletBreakPoint}){
         width: 15%;
     }
 `
 
 export interface CourseAudioProps{
-    title: string,
-    lesson: string,
+    title?: string,
+    lesson?: string,
     audio: string
 }
 function CourseAudio({title, lesson, audio}: CourseAudioProps) {
@@ -72,6 +72,7 @@ function CourseAudio({title, lesson, audio}: CourseAudioProps) {
                 })
 
                 await wavesurfer.loadBlob(blob)
+                wavesurfer.on('finish',()=> setIsPlaying(false))
                 setWaveSurfer(wavesurfer)
             }
 
@@ -85,6 +86,8 @@ function CourseAudio({title, lesson, audio}: CourseAudioProps) {
     useEffect(()=>{
         loadAudio();
     }, [])
+
+    
     const playClickHandler = () => {
 
         waveSurfer?.playPause()
@@ -92,8 +95,8 @@ function CourseAudio({title, lesson, audio}: CourseAudioProps) {
     }
 
     return (<div style={{width: '100%'}}>
-        <AccordionContentH1>{title}</AccordionContentH1>
-        <AccordionContentH2>{lesson}</AccordionContentH2>
+        {title && <AccordionContentH1>{title}</AccordionContentH1>}
+        {lesson && <AccordionContentH2>{lesson}</AccordionContentH2>}
         <CourseAudioContainer >
             {loading? <Spinner/> : 
             <PlayButton onClick={playClickHandler}>

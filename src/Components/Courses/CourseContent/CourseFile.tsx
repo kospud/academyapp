@@ -4,13 +4,16 @@ import styled, { useTheme } from 'styled-components'
 import { marginBottom } from '../../Gaps'
 import { PiPlayCircle } from "react-icons/pi";
 import { PiPauseCircle } from "react-icons/pi";
-import { responsiveText } from '../../PageBlocks';
+import { responsiveText, TextColorHovered } from '../../PageBlocks';
 import { parseBlob } from 'music-metadata-browser';
 import { Spinner } from '../../Spinner';
-import { isMobileOnly } from 'react-device-detect';
+import { isDesktop, isMobileOnly } from 'react-device-detect';
 import { AccordionContentH1, AccordionContentH2 } from './CourseContent';
+import { AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineCloudSync } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import mockFile from '../../../files/Презентация с уроками.pdf'
+import { MobileBreakPoint } from "../../../utils/consts";
 
 
 const CourseDocumentContainer = styled(Link)`
@@ -21,6 +24,15 @@ const CourseDocumentContainer = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.colors.text};
     ${responsiveText(84, 84, 39)}
+    ${TextColorHovered}
+    svg{
+        margin-right: 24px;
+
+        @media (max-width: ${MobileBreakPoint}){
+            margin-right: 12px;
+        }
+            
+    }
 
 `
 
@@ -65,13 +77,17 @@ function CourseFile({title, link}: CourseFileProps) {
         })
     }, [])
 
+    const iconStyle: React.CSSProperties={
+        marginRight: 0
+    }
     return (loading ? <Spinner /> : <>
         <CourseDocumentContainer target="_blank" to={link}>
             <AiOutlineFile />
-            <div>
+            <div style={{flexGrow: 1}}>
                 <AccordionContentH1>{title}</AccordionContentH1>
                 <AccordionContentH2>{`${fileMetadata.contentType}, ${fileMetadata.contentLength}`}</AccordionContentH2>
             </div>
+            {isDesktop? <AiOutlineCloudSync style={iconStyle}/> : <AiOutlineDownload style={iconStyle}/>}
         </CourseDocumentContainer>
     </>
     )

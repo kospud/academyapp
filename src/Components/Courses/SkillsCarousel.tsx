@@ -14,7 +14,7 @@ const Skill=styled.div`
     display: block;
     width: 90%;
     aspect-ratio: 1/1;
-    border: solid 3px ${(props=>props.theme.colors.text)};
+    border: solid ${(props=>props.theme.colors.text)};
     border-radius: 10px;
     ${responsiveText(18, 18, 12)};
     color: ${(props) => props.theme.colors.text};

@@ -3,27 +3,52 @@ import { Link } from "react-router-dom"
 import styled, { css } from "styled-components"
 import { TabletBreakPoint, MobileBreakPoint, DesktopWidth, TabletWidth, MobileWidth } from "../utils/consts"
 import { marginBottom, marginTop } from "./Gaps"
+import { FontStyle } from "../utils/themes"
 
 
 export const responsiveText = (desktop: number, tablet: number, mobile: number) => css`
-  font-size: ${(desktop/DesktopWidth*100).toFixed(2)}svw;
+  font-size: ${(desktop / DesktopWidth * 100).toFixed(2)}svw;
 
-  @media (max-width: ${TabletBreakPoint}) {
-    font-size: ${(tablet/TabletWidth*100).toFixed(2)}svw;
-  }
+@media (max-width: ${TabletBreakPoint}) {
+  font-size: ${(tablet / TabletWidth * 100).toFixed(2)}svw;
+}
 
-  @media (max-width: ${MobileBreakPoint}) {
-    font-size: ${(mobile/MobileWidth*100).toFixed(2)}svw;
-  }
+@media (max-width: ${MobileBreakPoint}) {
+  font-size: ${(mobile / MobileWidth * 100).toFixed(2)}svw;
+}
+`
+
+export const responsiveTextFixed = (desktop: number, tablet: number, mobile: number) => css`
+  font-size: ${desktop}px;
+
+@media (max-width: ${TabletBreakPoint}) {
+  font-size: ${tablet}px;
+}
+
+@media (max-width: ${MobileBreakPoint}) {
+  font-size: ${mobile}px;
+}
+`
+
+export const responsiveTextThemed=(desktop: FontStyle, tablet: FontStyle, mobile: FontStyle)=>css`
+        font-size: ${desktop.fontSize}px;
+
+    @media (max-width: ${TabletBreakPoint}) {
+        font-size: ${tablet.fontSize}px;
+    }
+
+    @media (max-width: ${MobileBreakPoint}) {
+        font-size: ${mobile.fontSize}px;
+    }
+
 `
 
 export const RedButtonStyle = css<{ hover?: boolean }>`
     background-color: ${(props) => props.hover ? props.theme.colors.primary : 'unset'};
-    border: solid rgba(204, 51, 39, 1);
+    border: solid ${(props) => props.theme.colors.primary};
     text-decoration: none;
     color: ${(props) => props.hover ? props.theme.colors.text : props.theme.colors.primary};
-    font-Weight: 700;
-    font-size: 1.8svw;
+    font-Weight: 600;
     text-transform: uppercase;
     padding-top: 1svw;
     padding-bottom: 1svw;
@@ -35,11 +60,10 @@ export const RedButtonStyle = css<{ hover?: boolean }>`
     transition: background-color .1s ease-in-out, color .1s ease-in-out;
     cursor: pointer;
     user-select: none;
-    @media(max-width: ${TabletBreakPoint}){
-        font-size: 3.7svw;
-    }
+    ${responsiveText(36,36,18)}
+    font-family: inherit;
+    
     @media(max-width: ${MobileBreakPoint}){
-        font-size: 5.7svw;
         padding-top: 3svw;
         padding-bottom: 3svw;
         padding-right: 5svw;
@@ -62,6 +86,7 @@ export const RedLinkButton = ({ to, style, onClick, hover, children }: PropsWith
 
 
     return <RedLinkButtonElement
+
         onMouseEnter={() => setHover(!btnHover)}
         onMouseLeave={() => setHover(!btnHover)}
         to={to}
@@ -92,7 +117,7 @@ export const RedButton = ({ style, onClick, hover, children }: PropsWithChildren
     </RedButtonElement>
 }
 
-export const Page=styled.div`
+export const Page = styled.div`
     width: 90%;
 
 
@@ -101,17 +126,17 @@ export const Page=styled.div`
     }
 `
 
-export const PageBlock=styled.div`
+export const PageBlock = styled.div`
     width: 100%;
-    min-height: 100svh;
-
+    ${marginBottom(90)}
+    /*min-height: 100svh;
     @media (max-width: ${TabletBreakPoint}) and (orientation: portrait){
         min-height: 0px;
         ${marginBottom(90)}
-    }
+    }*/
 `
 
-const headersWidth=css`
+const headersWidth = css`
     width: 30svw;
 
     @media (max-width: ${TabletBreakPoint}){
@@ -119,25 +144,26 @@ const headersWidth=css`
     }
 
     @media (max-width: ${MobileBreakPoint}){
-        width: 80svw;
+        width: 50%;
     }
 `
-export const PageBlockHeader=styled.h1<{marginTop?: number}>`
+export const PageBlockHeader = styled.h1<{ marginTop?: number, marginBottom?: number }>`
     display: inline-block;
     margin: 0;
-    color: ${(props)=>props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
     ${responsiveText(64, 64, 36)}
     text-transform: uppercase;
-    font-weight: 800;
-    ${(props)=>props.marginTop? marginTop(props.marginTop) : ''}
+    font-weight: 700;
+    ${(props) => props.marginTop ? marginTop(props.marginTop) : ''}
+    ${(props) => props.marginBottom ? marginBottom(props.marginBottom) : ''}
     line-height: 1;
     ${headersWidth}
 `
 
-export const PageBlockPhrase=styled.a`
+export const PageBlockPhrase = styled.a`
     display: block;
-    color: ${(props)=>props.theme.colors.text};
-    font-weight: 600;
+    color: ${(props) => props.theme.colors.text};
+    font-weight: 500;
     ${responsiveText(18, 18, 12)}
     ${headersWidth}
     ${marginTop(36)}
@@ -148,4 +174,12 @@ ${marginTop(90)}
 ${marginBottom(180)}
 display: flex;
 justify-content: center;
+`
+
+export const TextColorHovered=css`
+    &:hover{
+        color: ${({theme})=>theme.colors.primary};
+        border-color: ${({theme})=>theme.colors.primary};
+        transition: color .15s ease-in-out, border-color .3s ease-in-out;
+    }
 `

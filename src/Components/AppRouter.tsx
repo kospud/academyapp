@@ -8,6 +8,8 @@ import styled from 'styled-components'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 import Navbar from './Navbar'
 import { setOrientation } from '../store/orientationSlice'
+import TopMenu from './TopMenu'
+import { Grid } from 'antd'
 
 const AppContainer = styled.div<{ isMobile: boolean }>`
   width: 100svw;
@@ -15,10 +17,13 @@ const AppContainer = styled.div<{ isMobile: boolean }>`
   overflow: hidden;
   display: flex;
   background-color: ${(props) => props.theme.colors.secondary};
-  flex-direction: ${({ isMobile }) => isMobile ? 'column' : 'row'};
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 
+  @media (max-width: ${MobileBreakPoint}){
+    flex-direction: column;
+  }
 `
 
 const AppContent = styled.div`
@@ -29,8 +34,8 @@ const AppContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  @media (max-width: ${TabletBreakPoint}) and (orientation: portrait){
+  position: relative;
+  @media (max-width: ${MobileBreakPoint}){
     width: 100%;
     height: 90svh;
   }
@@ -39,7 +44,7 @@ const AppContent = styled.div`
 function AppRouter() {
   const userstate = useSelector((state: RootState) => state.user)
   const orientation=useSelector((state: RootState)=>state.orientation).orientation
-
+  const screen=Grid.useBreakpoint()
   const dispatch=useDispatch()
   useEffect(()=>{
     const resetOrinetation=()=>{
@@ -55,9 +60,10 @@ function AppRouter() {
       {
         userstate.user ?
           <>
-            {orientation.landscape && <Navbar />}
+            {!screen.xs && <Navbar />}
             <AppContent>
               <Suspense fallback={<div>Loading...</div>}>
+              <TopMenu/>
                 <Routes>
                   {
                     privateRoutes.map(({ path, component }) => <Route key={path} path={path} Component={component} />)
@@ -66,7 +72,7 @@ function AppRouter() {
                 </Routes>
               </Suspense>
             </AppContent>
-            {orientation.portrait && <Navbar />}
+            {screen.xs && <Navbar />}
           </>
           :
 

@@ -1,5 +1,5 @@
 import {  lazy } from "react"
-import { ALL_COURSES_ROUTE, CHAT_ROUTE, COURSE_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, MY_COURSES_ROUTE, PASSWORD_RESET_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE } from "./consts"
+import { ALL_COURSES_ROUTE, CHAT_ROUTE, COURSE_MODULE_ROUTE, COURSE_PAGE_ROUTE, COURSE_ROUTE, HELP_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, MY_COURSES_ROUTE, PASSWORD_RESET_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, SETTINGS_ROUTE } from "./consts"
 import LoginPage from "../Components/Login/LoginPage"
 import RegistrationPage from "../Components/Login/RegistrationPage"
 import PasswordResetPage from "../Components/Login/PasswordResetPage"
@@ -43,6 +43,22 @@ export const privateRoutes=[
     {
         path: COURSE_ROUTE,
         component: lazy(()=>import('../Components/Courses/MyCoursePage'))
+    },
+    {
+        path: COURSE_MODULE_ROUTE,
+        component: lazy(()=>import('../Components/Module/CourseModule'))
+    },
+    {
+        path: COURSE_PAGE_ROUTE,
+        component: lazy(()=>import('../Components/Courses/CoursePage/CoursePage'))
+    },
+    {
+        path: SETTINGS_ROUTE,
+        component: lazy(()=>import ('../Components/Settings/SettingsPage'))
+    },
+    {
+        path: HELP_ROUTE,
+        component: lazy(()=>import('../Components/Help/HelpPage'))
     }
 ]
 

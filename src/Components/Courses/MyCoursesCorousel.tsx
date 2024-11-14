@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import SliderWithCustomArrows from '../../SliderWidthCustomArrows'
-import { responsiveText } from '../PageBlocks'
+import { responsiveText, responsiveTextThemed, TextColorHovered } from '../PageBlocks'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 import { marginBottom, marginTop } from '../Gaps'
 import mockCourse from '../../img/mockCourse.webp'
@@ -9,6 +9,7 @@ import { MobileBreakPoint, MY_COURSES_ROUTE, TabletBreakPoint } from '../../util
 import { SwiperSlide } from 'swiper/react'
 import { Link } from 'react-router-dom'
 import CourseProgress from './CourseProgress'
+import { Grid } from 'antd'
 interface Course {
     id: number | string,
     title: string,
@@ -34,7 +35,7 @@ const mockCourses: Course[] = [
 ]
 
 const CourseCardContainer = styled.div`
-    width: 100%;   
+    width: 95%;   
 `
 
 const CourseTitle = styled.a`
@@ -42,7 +43,7 @@ const CourseTitle = styled.a`
     color: ${(props) => props.theme.colors.text};
     ${responsiveText(64, 36, 16)}
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 700;
     
     ${marginBottom(24)}
 `
@@ -56,22 +57,25 @@ const CourseImg = styled.img`
 `
 
 const CourseLink = styled(Link)`
-display: block;
+    display: block;
     text-decoration: none;
+    width: fit-content;
     color: ${(props) => props.theme.colors.text};
     ${responsiveText(36, 36, 12)}
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
+    ${TextColorHovered}
 `
 const CourseCard = ({ course }: PropsWithChildren<{ course: Course }>) => {
 
+    const screen=Grid.useBreakpoint()
     const progress = Math.round(course.finishedLessons / course.totalLessons * 100)
 
     const linkPhrase = course.finishedLessons === 0 ? 'начать' : 'продолжить'
 
     return <CourseCardContainer>
-            <div style={{position: isMobile ? 'absolute' : undefined, transform: isMobile ? 'translate(10%,15%)' : undefined }}>
+            <div style={{position: screen.xs ? 'absolute' : undefined, transform: screen.xs ? 'translate(10%,15%)' : undefined }}>
                 <CourseTitle>{course.title}</CourseTitle>
                 <CourseProgress lessons={course.totalLessons} finishedLessons={course.finishedLessons}/>
             </div>

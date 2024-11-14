@@ -10,7 +10,7 @@ display: flex;
 align-items: center;
 ${props=>marginBottom(props.coursePageView? 0 : 45)}
 
-@media (max-width: ${TabletBreakPoint}){
+@media (max-width: ${MobileBreakPoint}){
     width: 100%;
 }
 `

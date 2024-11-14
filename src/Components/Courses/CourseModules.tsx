@@ -4,6 +4,7 @@ import { RedLinkButton, responsiveText } from '../PageBlocks'
 import { marginBottom } from '../Gaps'
 import moduleImg from '../../img/mockModule.png'
 import { isMobile } from 'react-device-detect'
+import { useParams } from 'react-router-dom'
 
 const ModuleContainer = styled.div`
   width: 100%;
@@ -41,7 +42,7 @@ const ModuleDescriprion = styled.div`
 width: 55%;
 `
 
-const ModuleDescriprionBlock = styled.a<{ last?: boolean }>`
+export const ModuleDescriprionBlock = styled.a<{ last?: boolean }>`
 position: relative;
   ${TextStyle};
   text-transform: none;
@@ -58,16 +59,19 @@ const ModuleImg = styled.div`
     object-fit: cover;
   }
 `
+
+export const moduleNumberGenerator = (index: number) => {
+  const zeroLength = 2;
+
+  return (++index).toString().padStart(zeroLength, '0')
+}
+
 function CourseModule({ module, index }: PropsWithChildren<{ module: Module, index: number }>) {
 
-  const moduleNumberGenerator = (index: number) => {
-    const zeroLength = 2;
-
-    return (++index).toString().padStart(zeroLength, '0')
-  }
-
+  const moduleNumber=moduleNumberGenerator(index)
+  
   return <ModuleContainer>
-    <ModuleNumber>{`${moduleNumberGenerator(index)}/модуль`}</ModuleNumber>
+    <ModuleNumber>{`${moduleNumber}/ модуль`}</ModuleNumber>
     <ModuleTitle>{module.title}</ModuleTitle>
     <ModuleImgBlock>
       <ModuleImg>
@@ -79,7 +83,7 @@ function CourseModule({ module, index }: PropsWithChildren<{ module: Module, ind
         }
       </ModuleDescriprion>
     </ModuleImgBlock>
-    <RedLinkButton hover to={'/'}>Перейти к урокам</RedLinkButton>
+    <RedLinkButton hover to={`/mycourses/${0}/modules/${parseInt(moduleNumber)}`}>Перейти к урокам</RedLinkButton>
   </ModuleContainer>
 
 }

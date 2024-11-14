@@ -6,4 +6,10 @@ html,body {
   color: white;
   max-width: 100%;
   overscroll-behavior-y: none;
+  overflow-y: hidden;
+}
+
+
+.ant-checkbox-inner::after{
+  background-color: #CC3327 !important;
 }

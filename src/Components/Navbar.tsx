@@ -12,11 +12,14 @@ import { isMobile, isMobileOnly } from 'react-device-detect';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { responsiveText } from './PageBlocks';
-import { ReactComponent as HomeIcon } from '../../src/img/NavbarIcons/Home.svg'
+/*import { ReactComponent as HomeIcon } from '../../src/img/NavbarIcons/Home.svg'
 import { ReactComponent as AllCoursesIcon } from '../../src/img/NavbarIcons/Starallcourses.svg'
 import { ReactComponent as MycoursesIcon } from '../../src/img/NavbarIcons/Folder.svg'
 import { ReactComponent as ChatIcon } from '../../src/img/NavbarIcons/Comment.svg'
-import { ReactComponent as ProfileIcon} from '../../src/img/NavbarIcons/User.svg'
+import { ReactComponent as ProfileIcon} from '../../src/img/NavbarIcons/User.svg'*/
+import { Grid } from 'antd';
+import AllCourses from './Courses/AllCourses';
+import { Folder, Home, Comment, User, Starallcourses} from './icons';
 
 
 const NavbarContainer = styled.div<{ isMobile: boolean }>`
@@ -27,6 +30,7 @@ const NavbarContainer = styled.div<{ isMobile: boolean }>`
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    min-width: 80px;
 `
 
 const NavbarContent = styled.div`
@@ -35,7 +39,7 @@ const NavbarContent = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    @media (max-width: ${TabletBreakPoint}) and (orientation: portrait){
+    @media (max-width: ${MobileBreakPoint}){
         flex-direction: row;
         width: 88%;
         height: fit-content;
@@ -46,7 +50,7 @@ const NavbarTop = styled(NavbarContent)`
     height: 56%;
     width: 100%;
     max-height: 344px;
-    @media (max-width: ${TabletBreakPoint}) and (orientation: portrait){
+    @media (max-width: ${MobileBreakPoint}){
         height: fit-content;
     }
 `
@@ -61,16 +65,11 @@ const NavbarLinkContainer = styled(Link) <{ selected: boolean }>`
     .navbar-icon {
         width: 32px;
         height: 32px;
-
-        path, rect, circle{
-            fill: ${(props) => props.selected ? props.theme.colors.secondary : props.theme.colors.text};
-            transition: fill .1s ease-in-out;
-        }
     }
 
     span{
         display: block;
-        ${responsiveText(14, 10, 9)}
+        ${responsiveText(14, 14, 9)}
     }
 `
 
@@ -83,22 +82,22 @@ const NavbarLink = ({ to, selected, text, icon }: PropsWithChildren<{ to: string
 }
 const navbarTopElements = [
     {
-        icon: <HomeIcon className='navbar-icon'/>,
+        icon: <Home className='navbar-icon'/>,
         link: MAIN_ROUTE,
         text: 'Главная'
     },
     {
-        icon: <AllCoursesIcon className='navbar-icon'/>,
+        icon: <Starallcourses className='navbar-icon'/>,
         link: ALL_COURSES_ROUTE,
         text: 'Все курсы'
     },
     {
-        icon: <MycoursesIcon className='navbar-icon' />,
+        icon: <Folder className='navbar-icon' />,
         link: MY_COURSES_ROUTE,
         text: 'Мои курсы'
     },
     {
-        icon: <ChatIcon className='navbar-icon' />,
+        icon: <Comment className='navbar-icon'/>,
         link: CHAT_ROUTE,
         text: 'Поддержка'
     }
@@ -108,22 +107,22 @@ function Navbar() {
     const location = useLocation()
     const [basePath, setBasePath] = useState('')
     const orientation = useSelector((state: RootState) => state.orientation).orientation
-
+    const screen=Grid.useBreakpoint()
     useEffect(() => {
         setBasePath('/' + location.pathname.split('/')[1])
     }, [location])
 
-    const profileLink=<NavbarLink to={PROFILE_ROUTE} selected={PROFILE_ROUTE===basePath} icon={<ProfileIcon className='navbar-icon'/>} text='профиль'></NavbarLink>
+    const profileLink=<NavbarLink to={PROFILE_ROUTE} selected={PROFILE_ROUTE===basePath} icon={<User className='navbar-icon'/>} text='профиль'></NavbarLink>
     return (
-        <NavbarContainer isMobile={isMobile && orientation.portrait}>
+        <NavbarContainer isMobile={screen.xs!}>
             <NavbarContent>
                 <NavbarTop>
                     {
                         navbarTopElements.map(({ link, icon, text }) => <NavbarLink selected={link === basePath} key={link} to={link} icon={icon} text={text} />)
                     }
-                    {orientation.portrait && profileLink}
+                    {screen.xs && profileLink}
                 </NavbarTop>
-                {orientation.landscape && profileLink}
+                {!screen.xs && profileLink}
             </NavbarContent>
         </NavbarContainer>
     )

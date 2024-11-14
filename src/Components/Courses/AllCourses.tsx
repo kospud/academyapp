@@ -2,9 +2,9 @@ import React, { PropsWithChildren } from 'react'
 import mockCourse from '../../img/mockCourse.webp'
 import styled from 'styled-components'
 import { marginBottom, marginTop } from '../Gaps'
-import { Page, PageBlock, PageBlockHeader, PageBlockPhrase, responsiveText } from '../PageBlocks'
+import { Page, PageBlock, PageBlockHeader, PageBlockPhrase, responsiveText, TextColorHovered } from '../PageBlocks'
 import { Link } from 'react-router-dom'
-import { MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
+import { ALL_COURSES_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
 
 export interface Course {
   id: number,
@@ -12,7 +12,7 @@ export interface Course {
   img: string,
   phrase: string
 }
-const mockCourses: Course[] = [
+export const mockCourses: Course[] = [
   {
     id: 0,
     title: 'Как написать песню',
@@ -105,6 +105,7 @@ const CoursePhrase=styled.a`
   line-height: 1;
   width: 90%;
   ${marginBottom(45)}
+  font-weight: 500;
 `
 
 const CourseLink=styled(Link)`
@@ -115,7 +116,9 @@ const CourseLink=styled(Link)`
   width: 90%;
   text-transform: uppercase;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 600; 
+  
+  ${TextColorHovered}
 `
 export const CourseCard = ({ course, containerStyle }: PropsWithChildren<{ course: Course, containerStyle?: React.CSSProperties }>) => {
 
@@ -125,7 +128,7 @@ export const CourseCard = ({ course, containerStyle }: PropsWithChildren<{ cours
       <CourseImg src={img} alt={title} />
       <CourseTitle>{title}</CourseTitle>
       <CoursePhrase>{phrase}</CoursePhrase>
-      <CourseLink to={'/courses/'+id}>Перейти</CourseLink>
+      <CourseLink to={ALL_COURSES_ROUTE+'/'+id}>Перейти</CourseLink>
     </CourseCardContent>
   </CourseCardContainer>
 }

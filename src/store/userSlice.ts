@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export type User={
     firstname: string,
     secondname: string,
-    mail: string
+    mail: string,
+    photo?: string
 }
 
 interface UserState{
