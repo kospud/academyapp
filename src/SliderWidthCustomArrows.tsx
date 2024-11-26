@@ -118,14 +118,15 @@ function SliderWithCustomArrows({ children, slidesToShow, childrenLength, infini
     })
     return (
         <SliderContainer {...handlers}>
-            {isSlided && isDesktop && <ArrowsContainer>
+            {/*isSlided && isDesktop && <ArrowsContainer>
             <CustomArrow type={arrowType.prev} onClick={prevSlide}>
                 <RiArrowLeftWideFill />
             </CustomArrow>
             <CustomArrow type={arrowType.next} onClick={nextSlide}>
                 <RiArrowRightWideFill />
             </CustomArrow>
-            </ArrowsContainer>}
+            </ArrowsContainer>*/
+            }
             <CustomSlider ref={sliderRef} {...settings}>
                 {
                     children

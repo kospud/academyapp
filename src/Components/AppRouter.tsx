@@ -11,6 +11,7 @@ import { setOrientation } from '../store/orientationSlice'
 import TopMenu from './TopMenu'
 import { Grid } from 'antd'
 
+
 const AppContainer = styled.div<{ isMobile: boolean }>`
   width: 100svw;
   height: 100svh;
@@ -27,16 +28,26 @@ const AppContainer = styled.div<{ isMobile: boolean }>`
 `
 
 const AppContent = styled.div`
-  flex-grow: 1;
+
   overflow-x: hidden;
   overflow-y: auto;
-  height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  width: 100%;
+
+`
+
+const App=styled.div`
+  width: 100%;
+  overflow: hidden;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
   @media (max-width: ${MobileBreakPoint}){
-    width: 100%;
     height: 90svh;
   }
 `
@@ -61,9 +72,10 @@ function AppRouter() {
         userstate.user ?
           <>
             {!screen.xs && <Navbar />}
+            <App>
+            <TopMenu/>         
             <AppContent>
               <Suspense fallback={<div>Loading...</div>}>
-              <TopMenu/>
                 <Routes>
                   {
                     privateRoutes.map(({ path, component }) => <Route key={path} path={path} Component={component} />)
@@ -72,6 +84,7 @@ function AppRouter() {
                 </Routes>
               </Suspense>
             </AppContent>
+            </App>
             {screen.xs && <Navbar />}
           </>
           :

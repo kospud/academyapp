@@ -7,6 +7,7 @@ import { isMobile } from 'react-device-detect'
 import { ALL_COURSES_ROUTE, TabletBreakPoint } from '../../utils/consts'
 import { marginBottom, marginTop } from '../Gaps'
 import { RedLinkButton } from '../PageBlocks'
+import { Grid } from 'antd'
 
 const mockCourses: Course[] = [
   {
@@ -47,6 +48,8 @@ const CourseCarouselContainer = styled.div`
 
 
 function CoursesCarousel() {
+
+  const screen=Grid.useBreakpoint()
 
   const courses = mockCourses
 

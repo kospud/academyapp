@@ -8,9 +8,13 @@ import mockVideoPreview from '../../img/mockVideoPreview.jpg'
 import ModuleRoadMap from './ModuleRoadMap'
 import ModuleLesson from './Lesson'
 import mockAudio from '../../audio/mon amour remix.mp3'
+import { MobileBreakPoint } from '../../utils/consts'
 const Module = styled(Page)`
     width: 80%;
     
+    @media (max-width:${MobileBreakPoint}){
+        width: 88%;
+    }
 `
 
 type Module = {

@@ -9,8 +9,11 @@ import styled from 'styled-components'
 import { marginBottom, marginTop } from '../Gaps'
 import CoursesCarousel from '../Courses/CoursesCarousel'
 import BlogList from '../Blog/BlogList'
+import { Grid } from 'antd'
 
 function MainPage() {
+
+  const screen=Grid.useBreakpoint()
 
   return (
     <Page>
@@ -22,14 +25,14 @@ function MainPage() {
         <PageBlockHeader>Популярные курсы</PageBlockHeader>
         <PageBlockPhrase>Добро пожаловать в мир Академии тут снова будет какой-то текст, но пока что так.</PageBlockPhrase>
         <CoursesCarousel />
-        <PageLinkButtonContainer>
+        <PageLinkButtonContainer isMobile={screen.xs}>
           <RedLinkButton to={ALL_COURSES_ROUTE} hover>Все курсы</RedLinkButton>
         </PageLinkButtonContainer>
       </PageBlock>
       <PageBlock>
         <PageBlockHeader>Полезные статьи</PageBlockHeader>
         <BlogList />
-        <PageLinkButtonContainer>
+        <PageLinkButtonContainer isMobile={screen.xs}>
           <RedLinkButton to={BLOG_ROUTE} hover>Все статьи</RedLinkButton>
         </PageLinkButtonContainer>
       </PageBlock>

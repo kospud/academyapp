@@ -15,6 +15,7 @@ enum HelpPageMenu{
   courseSearching='Поиск курсов',
   payment='Оплата',
   learningProcess='Процесс обучения',
+  userProfile='Мой профиль пользователя'
 }
 
 type InfoBlock={
@@ -26,6 +27,7 @@ type HelpPageContent={
   courseSearching: InfoBlock[],
   payment: InfoBlock[],
   learningProcess: InfoBlock[]
+  userProfile: InfoBlock[]
 }
 const HelpPageMockContent: HelpPageContent={
   courseSearching: [{
@@ -60,7 +62,16 @@ const HelpPageMockContent: HelpPageContent={
     content: ['Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed.',
       'Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. '
     ]
-  }]
+  }],
+
+  userProfile: [
+    {
+      header: 'Вопросы по кабинету',
+      content: ['Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed.',
+        'Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. Lorem ipsum dolor sit amet consectetur. Elit ultrices tellus nunc risus magna a lorem ac. Aenean neque cursus facilisis mattis amet. Leo senectus arcu varius nulla eget lacus at risus. Pellentesque risus etiam vestibulum egestas dictum pellentesque duis sodales sed. '
+      ]
+    },
+  ]
 
 }
 
@@ -93,7 +104,7 @@ const UserProfileLink=styled(Link)`
 `
 
 const DownMenuContainer=styled.div`
-  ${marginTop(90)}
+  ${marginTop(45)}
 `
 const DownMenuItemElement=styled.div`
 
@@ -101,7 +112,7 @@ const DownMenuItemElement=styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
- ${responsiveText(72,72,32)}
+ ${responsiveText(48,48,24)}
  ${TextColorHovered}
  ${marginBottom(45)}
 `
@@ -161,7 +172,7 @@ function HelpPage() {
         [HelpPageMenu.courseSearching]: <InfoBlocksView blocks={pageContent.courseSearching}/>,
         [HelpPageMenu.payment]: <InfoBlocksView blocks={pageContent.payment}/>,
         [HelpPageMenu.learningProcess]: <InfoBlocksView blocks={pageContent.learningProcess}/>,
-        //[HelpPageMenu.userProfile]: <></>
+        [HelpPageMenu.userProfile]: <InfoBlocksView blocks={pageContent.userProfile}/>
 
     }
 
@@ -174,7 +185,6 @@ function HelpPage() {
                     <CourseMenuContainer>
                         <PageBlockHeader marginTop={90} marginBottom={90}>Как написать песню</PageBlockHeader>
                         {!screen.xs ? <Menu setMarginTop={setScrollContentMarginTop} {...menuProps} /> : <CoursePageAccordion items={elementsToRender}/>}
-                        <UserProfileLink to={PROFILE_ROUTE}>Мой профиль пользователя</UserProfileLink>
                         <DownMenuContainer>
                                 {
                                   downMenuItems.map((item)=><DownMenuItem {...item}/>)

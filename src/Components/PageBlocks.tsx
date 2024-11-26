@@ -50,10 +50,7 @@ export const RedButtonStyle = css<{ hover?: boolean }>`
     color: ${(props) => props.hover ? props.theme.colors.text : props.theme.colors.primary};
     font-Weight: 600;
     text-transform: uppercase;
-    padding-top: 1svw;
-    padding-bottom: 1svw;
-    padding-right: 3svw;
-    padding-left: 3svw;
+    padding: 0.5em 1em;
     border-radius: 5px;
     display: block;
     width: fit-content;
@@ -63,12 +60,6 @@ export const RedButtonStyle = css<{ hover?: boolean }>`
     ${responsiveText(36,36,18)}
     font-family: inherit;
     
-    @media(max-width: ${MobileBreakPoint}){
-        padding-top: 3svw;
-        padding-bottom: 3svw;
-        padding-right: 5svw;
-        padding-left: 5svw;
-    }
 `
 export const RedLinkButtonElement = styled(Link) <{ hover?: boolean }>`
    ${RedButtonStyle}
@@ -167,11 +158,15 @@ export const PageBlockPhrase = styled.a`
     ${responsiveText(18, 18, 12)}
     ${headersWidth}
     ${marginTop(36)}
+
+    @media (max-width: ${MobileBreakPoint}){
+        width: 100%;
+    }
 `
 
-export const PageLinkButtonContainer = styled.div`
+export const PageLinkButtonContainer = styled.div<{isMobile?: boolean}>`
 ${marginTop(90)}
-${marginBottom(180)}
+${({isMobile})=>marginBottom(isMobile? 90 : 180)}
 display: flex;
 justify-content: center;
 `

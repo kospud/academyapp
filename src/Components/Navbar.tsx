@@ -31,6 +31,7 @@ const NavbarContainer = styled.div<{ isMobile: boolean }>`
     align-items: center;
     flex-shrink: 0;
     min-width: 80px;
+    z-index: 5;
 `
 
 const NavbarContent = styled.div`

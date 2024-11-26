@@ -16,7 +16,7 @@ interface Margin extends Record<string, number> {
 const desktopGaps: Margin = {
     0: 0,
     180: 180,
-    90: 90,
+    90: 95,
     60: 60,
     45: 45,
     36: 36,
@@ -26,7 +26,7 @@ const desktopGaps: Margin = {
 
 const mobileGaps: Margin = {
     180: 140,
-    90: 70,
+    90: 75,
     60: 24,
     45: 16,
     36: 12,
