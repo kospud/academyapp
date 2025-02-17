@@ -14,6 +14,9 @@ export const ReviewTextStyle = css`
 
 export const ReviewBlock = styled.div`
 width: 100%;
+display: flex;
+flex-direction: column;
+gap: 24px;
 ${marginBottom(90)}
 `
 export const ReviewBlockHeader = styled.h2`
@@ -26,11 +29,11 @@ export const ReviewBlockHeader = styled.h2`
     color: ${(props) => props.theme.colors.text};
 `
 
-export const ReviewText = styled.p<{ last: boolean }>`
+export const ReviewText = styled.p<{ last?: boolean }>`
     display: block;
     width: 83%;
     ${ReviewTextStyle}
-    ${(props) => marginBottom(props.last ? 0 : 24)}
+    margin: 0;
     @media (max-width: ${MobileBreakPoint}){
         width: 100%;
     }

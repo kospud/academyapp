@@ -12,7 +12,11 @@ import CourseReviews from './CourseReviews'
 import WhyUs from './WhyUs'
 import PriceBlock from './CoursePrice'
 import CourseAllCourses from './CourseAllCourses'
-import { Grid } from 'antd'
+import { Grid, message } from 'antd'
+import { useNavigate, useParams } from 'react-router-dom'
+import { Course, useCourseQuery } from '../../../generated-types'
+import { Spinner } from '../../Spinner'
+import { ERROR_PAGE } from '../../../utils/consts'
 
 
 export enum CoursePageMenu {
@@ -53,17 +57,29 @@ const mockPriceList= [
 
 function CoursePage() {
 
+    const params = useParams<{ courseId: string }>()
+
     const [selectedMenuItem, setSelectedMenuItem] = useState<CoursePageMenu | undefined>(undefined)
     const [scrollContentMarginTop, setMarginTop] = useState<number | undefined>(undefined)
     const scrollContainerRef=useRef<HTMLDivElement>(null)
+    const navigate=useNavigate()
+
+    const {data, loading, error }=useCourseQuery({variables: {courseId: params.courseId?? ''}})
+
+
+        
+
+    const course=data?.course as Course
 
     const screen = Grid.useBreakpoint()
     const setScrollContentMarginTop = (top: number) => {
         setMarginTop(top)
     }
     
+
+
     const elementsToRender: Record<CoursePageMenu, React.JSX.Element> = {
-        [CoursePageMenu.aboutCourse]: <AboutCourse />,
+        [CoursePageMenu.aboutCourse]: <AboutCourse course={course}/>,
         [CoursePageMenu.mentors]: <CourseMentors/>,
         [CoursePageMenu.program]: <CourseModules/>,
         [CoursePageMenu.advantages]: <WhyUs/>,
@@ -83,13 +99,19 @@ function CoursePage() {
         }
     }, [selectedMenuItem])
 
-    return (
+    if(error){
+        navigate(ERROR_PAGE)
+        return null
+    }
+
+    return loading? <Spinner/> : (
         <Page>
+            
             <PageBlock>
                 <CourseScrollableBlock>
                     <CourseMenuContainer>
-                        <PageBlockHeader marginTop={90}>Как написать песню</PageBlockHeader>
-                        <CourseShortDescription>Курс о том как написать песню и о чем-нибудь еще</CourseShortDescription>
+                        <PageBlockHeader marginTop={90}>{course.title}</PageBlockHeader>
+                        <CourseShortDescription>{course.shortDescription}</CourseShortDescription>
                         {!screen.xs ? <Menu setMarginTop={setScrollContentMarginTop} {...menuProps} /> : <CoursePageAccordion items={elementsToRender}/>}
                     </CourseMenuContainer>
                     {!screen.xs && <CourseScrollContainer ref={scrollContainerRef}>

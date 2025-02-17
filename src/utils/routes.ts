@@ -1,8 +1,9 @@
 import {  lazy } from "react"
-import { ALL_COURSES_ROUTE, CHAT_ROUTE, COURSE_MODULE_ROUTE, COURSE_PAGE_ROUTE, COURSE_ROUTE, HELP_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, MY_COURSES_ROUTE, PASSWORD_RESET_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, SETTINGS_ROUTE } from "./consts"
+import { ALL_COURSES_ROUTE, CHAT_ROUTE, COURSE_MODULE_ROUTE, COURSE_PAGE_ROUTE, COURSE_ROUTE, ERROR_PAGE, HELP_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, MY_COURSES_ROUTE, PASSWORD_RESET_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, SETTINGS_ROUTE } from "./consts"
 import LoginPage from "../Components/Login/LoginPage"
 import RegistrationPage from "../Components/Login/RegistrationPage"
 import PasswordResetPage from "../Components/Login/PasswordResetPage"
+import ErrorPage from "../Components/ErrorPage"
 
 export const publicRoutes=[
     {
@@ -59,6 +60,10 @@ export const privateRoutes=[
     {
         path: HELP_ROUTE,
         component: lazy(()=>import('../Components/Help/HelpPage'))
+    },
+    {
+        path: ERROR_PAGE,
+        component: ErrorPage
     }
 ]
 

@@ -10,21 +10,24 @@ import { isMobileOnly } from 'react-device-detect';
 import Auth from './Components/Auth';
 import { setOrientation } from './store/orientationSlice';
 import { ConfigProvider } from 'antd';
+import { ApolloClient, ApolloProvider } from '@apollo/client';
+import client from './ApolloClient';
 
 
 function App() {
 
   return (
-    <Provider store={store}>
-      <ConfigProvider theme={{
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <ConfigProvider theme={{
 
-        token:{
-          //Размеры экранов:
+          token: {
+            //Размеры экранов:
             //Мобилка
             screenXSMin: 375,
             screenXSMax: 599,
             screenXS: 375,
-            
+
             //Планшеты
             screenSMMin: 600,
             screenSMMax: 1023,
@@ -34,7 +37,7 @@ function App() {
             screenMDMin: 1024,
             screenMDMax: 1365,
             screenMD: 1024,
-            
+
             //Компы
             screenLGMin: 1366,
             screenLGMax: 1919,
@@ -47,18 +50,19 @@ function App() {
 
             screenXXLMin: 2560,
             screenXXL: 2560
-        }
+          }
 
-      }}>
-        <BrowserRouter basename='academyapp'>
-          <AppThemeProvider>
-            <Auth>
-              <AppRouter />
-            </Auth>
-          </AppThemeProvider>
-        </BrowserRouter>
-      </ConfigProvider>
-    </Provider >
+        }}>
+          <BrowserRouter basename='academyapp'>
+            <AppThemeProvider>
+              <Auth>
+                <AppRouter />
+              </Auth>
+            </AppThemeProvider>
+          </BrowserRouter>
+        </ConfigProvider>
+      </Provider >
+    </ApolloProvider>
 
   );
 }

@@ -15,6 +15,7 @@ export const COURSE_MODULE_ROUTE=COURSE_ROUTE+'/modules/:moduleId'
 export const COURSE_PAGE_ROUTE=ALL_COURSES_ROUTE+'/:courseId'
 export const HELP_ROUTE='/help'
 export const SETTINGS_ROUTE='/settings'
+export const ERROR_PAGE="/error"
 
 //Размеры на макетах
 export const DesktopWidth=1920

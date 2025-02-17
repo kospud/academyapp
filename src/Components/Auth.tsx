@@ -1,21 +1,29 @@
 import React, { PropsWithChildren } from 'react'
 import { useDispatch } from 'react-redux'
-import { login } from '../store/userSlice'
+import { login, User } from '../store/userSlice'
+import { useUserMeQuery } from '../generated-types'
+
 
 function Auth({children}: PropsWithChildren) {
 
     const dispatch=useDispatch()
 
-    const user=localStorage.getItem('user')
+    const {data, loading, error}=useUserMeQuery()
 
-    if(user){
-        const userObject=JSON.parse(user)
+    if(data){
+        const userObject: User={
+          firstname: data?.userMe.name,
+          surname: data?.userMe.surname,
+          mail: data?.userMe.email!,
+          photo: ''
+          
+        }
         dispatch(login(userObject))
     }
 
   return (
     <>
-    {children}
+    {!loading && children}
     </>
   )
 }

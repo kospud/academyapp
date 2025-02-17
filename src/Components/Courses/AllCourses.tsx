@@ -5,6 +5,7 @@ import { marginBottom, marginTop } from '../Gaps'
 import { Page, PageBlock, PageBlockHeader, PageBlockPhrase, responsiveText, TextColorHovered } from '../PageBlocks'
 import { Link } from 'react-router-dom'
 import { ALL_COURSES_ROUTE, MobileBreakPoint, TabletBreakPoint } from '../../utils/consts'
+import { Course as BCourse, useAllCoursesQuery } from '../../generated-types'
 
 export interface Course {
   id: number,
@@ -16,48 +17,6 @@ export const mockCourses: Course[] = [
   {
     id: 0,
     title: 'Как написать песню',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 1,
-    title: 'Как стать звездой',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 2,
-    title: 'Как написать песню',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 3,
-    title: 'Как стать звездой',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 0,
-    title: 'Как написать песню',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 1,
-    title: 'Как стать звездой',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 2,
-    title: 'Как написать песню',
-    img: mockCourse,
-    phrase: 'Все начинается с песен'
-  },
-  {
-    id: 3,
-    title: 'Как стать звездой',
     img: mockCourse,
     phrase: 'Все начинается с песен'
   },
@@ -120,14 +79,14 @@ const CourseLink=styled(Link)`
   
   ${TextColorHovered}
 `
-export const CourseCard = ({ course, containerStyle }: PropsWithChildren<{ course: Course, containerStyle?: React.CSSProperties }>) => {
+export const CourseCard = ({ course, containerStyle }: PropsWithChildren<{ course: BCourse, containerStyle?: React.CSSProperties }>) => {
 
-  const { title, phrase, id, img } = course
+  const { title, shortDescription, id,} = course
   return <CourseCardContainer style={containerStyle}>
     <CourseCardContent>
-      <CourseImg src={img} alt={title} />
+      <CourseImg src={course.cover?.url?? ''} alt={course.title?? 'обложка'} />
       <CourseTitle>{title}</CourseTitle>
-      <CoursePhrase>{phrase}</CoursePhrase>
+      <CoursePhrase>{shortDescription}</CoursePhrase>
       <CourseLink to={ALL_COURSES_ROUTE+'/'+id}>Перейти</CourseLink>
     </CourseCardContent>
   </CourseCardContainer>
@@ -146,7 +105,8 @@ export const AllCoursesContainer = styled.div`
 `
 function AllCourses() {
 
-  const courses = mockCourses
+  const {data, loading, error}=useAllCoursesQuery()
+  const courses = data?.allCourses
 
   return (
     <Page>
@@ -155,7 +115,7 @@ function AllCourses() {
         <PageBlockPhrase>Добро пожаловать в мир Академии тут снова будет какой-то текст, но пока что так.</PageBlockPhrase>
         <AllCoursesContainer>
           {
-            courses.map(course => <CourseCard course={course} />)
+            courses?.map(course => <CourseCard course={course as BCourse} />)
           }
         </AllCoursesContainer>
       </PageBlock>

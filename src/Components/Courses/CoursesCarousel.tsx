@@ -60,19 +60,19 @@ function CoursesCarousel() {
     marginBottom: 0
   }
 
-  const elements = courses.map(course => <CourseCard containerStyle={courseContainerStyle} course={course} />)
+  //const elements = courses.map(course => <CourseCard containerStyle={courseContainerStyle} course={course} />)
   return <>{isSlide ?
     <CourseCarouselContainer>
       <SliderWithCustomArrows childrenLength={courses.length} slidesToShow={4} infinite={isMobile}>
         {
-          elements
+          //elements
         }
       </SliderWithCustomArrows>
     </CourseCarouselContainer>
     :
     <AllCoursesContainer>
       {
-        elements
+        //elements
       }
     </AllCoursesContainer>}
   </>

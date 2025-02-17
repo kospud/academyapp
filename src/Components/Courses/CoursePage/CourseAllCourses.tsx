@@ -13,7 +13,7 @@ function CourseAllCourses() {
   return (
     <CoursesContainer>
         {
-            courses.map((course)=><CourseCard course={course} containerStyle={{width: '50%'}}/>)
+            //courses.map((course)=><CourseCard course={course} containerStyle={{width: '50%'}}/>)
         }
     </CoursesContainer>
   )

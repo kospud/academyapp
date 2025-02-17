@@ -1,0 +1,10 @@
+query AllCourses {
+  allCourses {
+    id,
+    shortDescription,
+    title
+    cover{
+      url
+    }
+  }
+}

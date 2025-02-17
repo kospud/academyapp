@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type User={
     firstname: string,
-    secondname: string,
+    surname?: string | null,
     mail: string,
     photo?: string
 }

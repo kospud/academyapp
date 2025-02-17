@@ -1,0 +1,101 @@
+type Course {
+  cover: File
+  description: [JSONObject!]
+  id: ID!
+
+  """Преподаватели курса"""
+  mentors: [Mentor!]
+  published: Boolean!
+  shortDescription: String
+
+  """Навыки получаемые пользователем"""
+  skills: [CourseSkill!]
+  title: String
+}
+
+input CourseInfoInput {
+  description: [JSONObject!]!
+  id: ID!
+  shortDescription: String!
+  title: String!
+}
+
+type CourseSkill {
+  id: String!
+  name: String!
+}
+
+type File {
+  id: String!
+  mime_type: String!
+  name: String!
+  size: Float!
+  url: String
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type Mentor {
+  courses: [Course!]!
+  descriptionDesktop: JSONObject!
+  descriptionMobile: JSONObject!
+  descriptionTablet: JSONObject!
+  id: String!
+  name: String!
+  shortDescription: String!
+}
+
+type Mutation {
+  addCourseSkills(id: String!, skills: [String!]!): Course!
+  courseChangePublished(id: String!): Course!
+  createUser(email: String!, name: String!): User!
+  saveCourseInfo(data: CourseInfoInput!): Course!
+  signInAdmin(data: UserSingInInput!): UserSignUpResult!
+  signInUser(data: UserSingInInput!): UserSignUpResult!
+  signUpUser(data: UserSignUpInput!): UserSignUpResult!
+}
+
+type Query {
+  allCourses: [Course!]!
+  allMentors: [Mentor!]!
+  allSkills: [CourseSkill!]!
+  appCourse(courseId: String!): Course!
+  course(id: String!): Course!
+  editCoursePage(courseId: String!): Course!
+  userMe: UserSignInResult!
+  users: [User!]!
+}
+
+type User {
+  email: String!
+  id: ID!
+  name: String
+  surname: String
+}
+
+"""Результат регистрации нового пользователя"""
+type UserSignInResult {
+  email: String!
+  id: String!
+  name: String!
+  surname: String
+}
+
+input UserSignUpInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type UserSignUpResult {
+  token: String!
+  user: UserSignInResult!
+}
+
+input UserSingInInput {
+  email: String!
+  password: String!
+}
